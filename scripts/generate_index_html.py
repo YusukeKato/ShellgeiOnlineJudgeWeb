@@ -9,7 +9,7 @@ main_url = "https://shellgei-online-judge.com"
 blog_url = "https://yusukekato.jp"
 site_description = "シェル芸オンラインジャッジはシェル芸用の問題と自動ジャッジシステムを提供するウェブサービスです。Shell-gei Online Judge is a website that provides problems and an automated judgment system."
 favicon_url = main_url+"/favicon.jpg"
-css_url = main_url+"/css/style.css"
+css_url = main_url+"/style.css"
 
 lines = []
 
@@ -867,7 +867,7 @@ def write_index_html(lang="jp"):
   lines.append('<script>\n')
   lines.append('var is_jp = false;\n')
   lines.append('</script>\n')
-  lines.append('<script src="./index.js'+version_str+'"></script>\n')
+  lines.append('<script src="'+main_url+'/index.js'+version_str+'"></script>\n')
   lines.append('</div> <!-- alldiv -->\n')
   lines.append('<h1 class="heading-028-2" data-label="">&copy; 2023 YusukeKato All rights reserved.</h1>\n')
   lines.append('</body>\n')
