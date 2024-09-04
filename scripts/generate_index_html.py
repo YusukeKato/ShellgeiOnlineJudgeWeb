@@ -433,6 +433,7 @@ def write_index_html(lang="jp"):
   lines.append('<details>\n')
   lines.append('<summary>2024</summary>\n')
   lines.append('<ul>\n')
+  lines.append('<li>09/04: メンテナンス一旦完了、システム全体を見直し</li>\n')
   lines.append('<li>09/03: ブラウザ側のアプリを整理</li>\n')
   lines.append('<li>09/01: JavaScript側でもボタンの連打防止</li>\n')
   lines.append('<li>08/31: 全体を整理, 連続実行の予防</li>\n')
