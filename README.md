@@ -5,6 +5,12 @@
 
 シェル芸オンラインジャッジ: https://shellgei-online-judge.com/
 
+# Shellgei Online Judge Repositories
+- main: https://github.com/YusukeKato/ShellgeiOnlineJudge
+- web app: https://github.com/YusukeKato/ShellgeiOnlineJudgeWeb
+- server: https://github.com/YusukeKato/ShellgeiOnlineJudgeServer
+- problem data: https://github.com/YusukeKato/ShellgeiOnlineJudgeData
+
 # HTML生成方法
 下記のコマンドでHTMLファイルを生成できます。
 
