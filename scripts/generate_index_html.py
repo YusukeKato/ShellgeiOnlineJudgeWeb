@@ -871,7 +871,10 @@ def write_index_html(lang):
   lines.append('<img src="'+main_url+'/BlackTreeIcon.jpg">\n')
   lines.append('</div>\n')
   lines.append('<script>\n')
-  lines.append('var is_jp = false;\n')
+  if lang == "jp":
+    lines.append('var is_jp = true;\n')
+  if lang == "en":
+    lines.append('var is_jp = false;\n')
   lines.append('</script>\n')
   lines.append('<script src="'+main_url+'/index.js'+version_str+'"></script>\n')
   lines.append('</div> <!-- alldiv -->\n')
