@@ -229,7 +229,7 @@ ul li {
   display: table-row;
 }
 ul li:before {
-  content: "•";
+  content: "";
   display: table-cell;
   padding-right: 0.2rem;
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-update_date = "2024/09/03"
-version_str = "?version=1000"
+update_date = "2024/09/04"
+version_str = "?version=1001"
 
 site_title = "シェル芸オンラインジャッジ / SHELLGEI ONLINE JUDGE"
 summary_url = "https://yusukekato.jp/images/summary.jpg"
@@ -69,10 +69,10 @@ def write_index_html(lang="jp"):
   # リストボタン生成
   lines.append('<ul class="nav-list">\n')
   lines.append('<li class="nav-list-item">\n')
-  lines.append('<a href="'+main_url+'"/index.html class="bButton">JAPANESE</a>\n')
+  lines.append('<a href="'+main_url+'/index.html" class="bButton">JAPANESE</a>\n')
   lines.append('</li>\n')
   lines.append('<li class="nav-list-item">\n')
-  lines.append('<a href="'+main_url+'"/index.en.html class="bButton">ENGLISH</a>\n')
+  lines.append('<a href="'+main_url+'/index.en.html" class="bButton">ENGLISH</a>\n')
   lines.append('</li>\n')
   lines.append('<li class="nav-list-item">\n')
   lines.append('<a href="'+blog_url+'" class="bButton">AUTHOR</a>\n')
