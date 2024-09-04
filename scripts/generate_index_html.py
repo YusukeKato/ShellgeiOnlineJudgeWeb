@@ -11,9 +11,14 @@ site_description = "シェル芸オンラインジャッジはシェル芸用の
 favicon_url = main_url+"/favicon.jpg"
 css_url = main_url+"/style.css"
 
-lines = []
+def write_index_html(lang):
+  lines = []
 
-def write_index_html(lang="jp"):
+  if lang == "jp":
+      print("lang: jp")
+  if lang == "en":
+      print("lang: en")
+  
   # html, google
   lines.append('<!DOCTYPE html>\n')
   if lang == "jp":
