@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 update_date = "2024/09/05"
-version_str = "?version=1005"
+version_str = "?version=1006"
 
 site_title = "シェル芸オンラインジャッジ / SHELLGEI ONLINE JUDGE"
 summary_url = "https://yusukekato.jp/images/summary.jpg"
@@ -872,7 +872,7 @@ def write_index_html(lang):
     lines.append('<pre><code id="userOutputText" class="mono-font">NULL</code></pre>\n')
     lines.append('</div>\n')
     lines.append('<div class="img">\n')
-    lines.append('<img id="resultImage" src="'+favicon_url+'" alt="result image">')
+    lines.append('<img id="resultImage" src="'+white_url+'" alt="result image">')
     lines.append('</div>\n')
     lines.append('<h3>実行したシェル芸</h3>\n')
     lines.append('<div class="textClass">\n')
