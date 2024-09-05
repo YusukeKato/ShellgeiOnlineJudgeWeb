@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 update_date = "2024/09/06"
-version_str = "?version=1007"
+version_str = "?version=1008"
 
 site_title = "シェル芸オンラインジャッジ / SHELLGEI ONLINE JUDGE"
 summary_url = "https://yusukekato.jp/images/summary.jpg"
@@ -767,8 +767,10 @@ def write_index_html(lang):
   lines.append('<select class="selectClass" id="selectForm3">\n')
   if lang == "jp":
     lines.append('<option value="IMAGE-00000001">画像テスト</option>\n')
+    lines.append('<option value="IMAGE-00000002">横線描画</option>\n')
   if lang == "en":
-    lines.append('<option value="IMAGE-00000001">image test</option>\n')
+    lines.append('<option value="IMAGE-00000001">Image Test</option>\n')
+    lines.append('<option value="IMAGE-00000002">Draw Line</option>\n')
   lines.append('</select>\n')
   lines.append('</label>\n')
   lines.append('<p></p>\n')
