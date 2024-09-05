@@ -273,6 +273,7 @@ async function submitClick() {
         var result_img_b64 = ImageToBase64(firstChild_resultImage, "image/jpeg")
 
         // base64 image log
+        console.log("Shellgei Output: "+shellgeiImage);
         console.log("Expected: "+output_img_b64);
         console.log("Result: "+result_img_b64);
 
