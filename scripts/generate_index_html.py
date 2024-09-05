@@ -90,14 +90,6 @@ def write_index_html(lang):
   if lang == "en":
     lines.append('<h2>INFORMATION</h2>\n')
 
-  # language settings
-  # lines.append('<h3>Language Settings</h3>\n')
-  # lines.append('<ul>\n')
-  # lines.append('<li>Japanese</li>\n')
-  # lines.append('<li><a href="'+main_url+'/index.en.html">English</a></li>\n')
-  # lines.append('</ul>\n')
-  # lines.append('\n')
-
   # last updated
   if lang == "jp":
     lines.append('<h3>最終更新日</h3>\n')
@@ -762,6 +754,30 @@ def write_index_html(lang):
   lines.append('</div>\n')
   lines.append('\n')
 
+  # select image problem
+  if lang == "jp":
+    lines.append('<h3>画像問題</h3>\n')
+  if lang == "en":
+    lines.append('<h3>Image</h3>\n')
+  lines.append('<div class="centerClass">\n')
+  lines.append('<label class="selectbox">\n')
+  lines.append('<select class="selectClass" id="selectForm3">\n')
+  if lang == "jp":
+    lines.append('<option value="IMAGE-00000001">画像テスト</option>\n')
+  if lang == "en":
+    lines.append('<option value="IMAGE-00000001">image test</option>\n')
+  lines.append('</select>\n')
+  lines.append('</label>\n')
+  lines.append('<p></p>\n')
+  lines.append('</div>\n')
+  lines.append('<div class="centerClass">\n')
+  if lang == "jp":
+    lines.append('<input type="button" value="決定" class="buttonClass" id="selectButton3">\n')
+  if lang == "en":
+    lines.append('<input type="button" value="GO" class="buttonClass" id="selectButton3">\n')
+  lines.append('</div>\n')
+  lines.append('\n')
+
   # selected
   if lang == "jp":
     lines.append('<h3>選択した問題ID</h3>\n')
@@ -786,6 +802,9 @@ def write_index_html(lang):
     lines.append('<div class="textClass">\n')
     lines.append('<pre><code id="outputText" class="mono-font">NULL</code></pre>\n')
     lines.append('</div>\n')
+    lines.append('<div class="img">\n')
+    lines.append('<img id="outputImage" src="'+favicon_url+'" alt="output image">')
+    lines.append('</div>\n')
     lines.append('\n')
   if lang == "en":
     lines.append('<h2>Problem</h2>\n')
@@ -800,6 +819,9 @@ def write_index_html(lang):
     lines.append('<h3>Expected Output</h3>\n')
     lines.append('<div class="textClass">\n')
     lines.append('<pre><code id="outputText" class="mono-font">NULL</code></pre>\n')
+    lines.append('</div>\n')
+    lines.append('<div class="img">\n')
+    lines.append('<img id="outputImage" src="'+favicon_url+'" alt="output image">')
     lines.append('</div>\n')
     lines.append('\n')
 
@@ -848,6 +870,9 @@ def write_index_html(lang):
     lines.append('<div class="textClass">\n')
     lines.append('<pre><code id="userOutputText" class="mono-font">NULL</code></pre>\n')
     lines.append('</div>\n')
+    lines.append('<div class="img">\n')
+    lines.append('<img id="resultImage" src="'+favicon_url+'" alt="result image">')
+    lines.append('</div>\n')
     lines.append('<h3>実行したシェル芸</h3>\n')
     lines.append('<div class="textClass">\n')
     lines.append('<pre><code id="shellgeiText" class="mono-font">NULL</code></pre>\n')
@@ -862,6 +887,9 @@ def write_index_html(lang):
     lines.append('<h3>Output Result</h3>\n')
     lines.append('<div class="textClass">\n')
     lines.append('<pre><code id="userOutputText" class="mono-font">NULL</code></pre>\n')
+    lines.append('</div>\n')
+    lines.append('<div class="img">\n')
+    lines.append('<img id="resultImage" src="'+favicon_url+'" alt="result image">')
     lines.append('</div>\n')
     lines.append('<h3>Executed Shell-gei</h3>\n')
     lines.append('<div class="textClass">\n')
