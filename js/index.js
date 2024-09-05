@@ -1,6 +1,6 @@
 // パラメータ
-let version = 1010;
-const limit_length = parseInt(1000);
+let version = 1011;
+const limit_length = parseInt(1000000);
 let mainUrl = 'https://shellgei-online-judge.com/';
 let is_enable_button = true;
 
@@ -63,6 +63,9 @@ function selectClickFunc(problemNum) {
     getText('outputText', mainUrl+'output/'+problemNum+'.txt?version='+version);
     // document.getElementById("outputImage").src = mainUrl+'problem_images/'+problemNum+'.jpg?version='+version;
     let outputImageParent = document.getElementById('outputImage');
+    while (outputImageParent.firstChild) {
+        outputImageParent.removeChild(outputImageParent.firstChild);
+    }
     let img_outputImage = document.createElement('img');
     img_outputImage.src = mainUrl+'problem_images/'+problemNum+'.jpg?version='+version;
     img_outputImage.alt = 'output image';
@@ -167,9 +170,9 @@ async function submitClick() {
     
     // 入力されたシェル芸が1文字以上1000文字未満であれば実行
     if(cmdline.value.length > limit_length) {
-        userOutput.innerHTML = "Exceeded character limit: 1000";
-        resultText.innerHTML = "Exceeded character limit: 1000";
-        st.innerHTML = "Exceeded character limit: 1000";
+        userOutput.innerHTML = "Exceeded character limit: 1000000";
+        resultText.innerHTML = "Exceeded character limit: 1000000";
+        st.innerHTML = "Exceeded character limit: 1000000";
     } else if(cmdline.value.length == 0) {
         userOutput.innerHTML = "Error: No input";
         resultText.innerHTML = "Error: No input";
@@ -177,7 +180,7 @@ async function submitClick() {
     } else {
         // タイムアウトを設定して実行
         timerId = setInterval('timeout()', 5000);
-        const txt = await postSend(cmdline.value + ' | head -n1000');
+        const txt = await postSend(cmdline.value + ' | head -n1000000');
         clearInterval(timerId);
 
         // 実行したシェル芸の文字列の処理
