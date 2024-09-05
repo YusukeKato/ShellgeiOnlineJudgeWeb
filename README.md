@@ -1,9 +1,7 @@
-[English](./README.en.md)
-
 # SHELLGEI ONLINE JUDGE WEB
-シェル芸オンラインジャッジのウェブアプリです。
+This repository is the web app for SHELLGEI ONLINE JUDGE.
 
-シェル芸オンラインジャッジ: https://shellgei-online-judge.com/
+SHELLGEI ONLINE JUDGE: https://shellgei-online-judge.com/
 
 # Shellgei Online Judge Repositories
 - main: https://github.com/YusukeKato/ShellgeiOnlineJudge
@@ -11,16 +9,16 @@
 - server: https://github.com/YusukeKato/ShellgeiOnlineJudgeServer
 - problem data: https://github.com/YusukeKato/ShellgeiOnlineJudgeData
 
-# HTML生成方法
-下記のコマンドでHTMLファイルを生成できます。
+# Generate HTML files
+execute the following command:
 
 ```sh
 $ cd scripts
 $ python3 generate_index_html.py
 ```
 
-# ライセンス
-本リポジトリはApache License 2.0で公開しています。
+# LICENSE
+This repository is licensed under Apache License 2.0.
 
-ライセンス全文: [Apache License 2.0](https://github.com/YusukeKato/ShellgeiOnlineJudgeWeb/blob/main/LICENSE)
+LICENSE: [Apache License 2.0](https://github.com/YusukeKato/ShellgeiOnlineJudgeWeb/blob/main/LICENSE)
 

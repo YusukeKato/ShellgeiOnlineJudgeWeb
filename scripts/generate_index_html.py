@@ -803,7 +803,7 @@ def write_index_html(lang):
     lines.append('<pre><code id="outputText" class="mono-font">NULL</code></pre>\n')
     lines.append('</div>\n')
     lines.append('<div class="img">\n')
-    lines.append('<img id="outputImage" src="'+favicon_url+'" alt="output image">')
+    lines.append('<img id="outputImage" src="'+favicon_url+'" alt="output image">\n')
     lines.append('</div>\n')
     lines.append('\n')
   if lang == "en":
@@ -821,7 +821,7 @@ def write_index_html(lang):
     lines.append('<pre><code id="outputText" class="mono-font">NULL</code></pre>\n')
     lines.append('</div>\n')
     lines.append('<div class="img">\n')
-    lines.append('<img id="outputImage" src="'+favicon_url+'" alt="output image">')
+    lines.append('<img id="outputImage" src="'+favicon_url+'" alt="output image">\n')
     lines.append('</div>\n')
     lines.append('\n')
 

@@ -122,13 +122,6 @@ function ImageToBase64(img, mime_type) {
     canvas.height = img.height;
     return canvas.toDataURL(mime_type);
 }
-function Base64ToImage(base64img, callback) {
-    var img = new Image();
-    img.onload = function() {
-        callback(img);
-    };
-    img.src = base64img;
-}
 
 // シェル芸の実行処理用関数
 async function submitClick() {
@@ -195,10 +188,6 @@ async function submitClick() {
             userOutput.innerHTML = "ERROR : NULL";
         }
 
-        // 想定出力画像をbase64に変換
-        var output_img = document.getElementById('outputImage');
-        var img_b64 = ImageToBase64(output_img, "image/jpeg")
-
         // 想定出力と実行結果を比較
         let outputText = document.getElementById('outputText');
         let replacedOutput = outputText.innerHTML.toString();
@@ -245,11 +234,23 @@ async function submitClick() {
 	        }
         }
 
-        console.log(img_b64);
-        console.log(shellgeiImage);
+        // 想定出力画像をbase64に変換
+        var output_img = document.getElementById('outputImage');
+        var output_img_b64 = ImageToBase64(output_img, "image/jpeg")
+
+        // 出力結果の画像を表示
+        shellgeiImage = 'data:image/jpeg;base64,'+shellgeiImage;
+        document.getElementById('resultImage').src = shellgeiImage;
+
+        // 出力結果の画像をbase64で再び取得
+        var result_img = document.getElementById('resultImage');
+        var result_img_b64 = ImageToBase64(result_img, "image/jpeg")
+
+        console.log(output_img_b64);
+        console.log(result_img_b64);
 
         // 正誤判定
-        if(shellgeiResult == replacedOutput && img_b64 == shellgeiImage) {
+        if(shellgeiResult == replacedOutput && output_img_b64 == result_img_b64) {
             if(is_jp) {
                 resultText.innerHTML = "正解 !!😄!!";
 	        } else {
@@ -262,11 +263,6 @@ async function submitClick() {
                 resultText.innerHTML = "Incorrect ...😭...";
 	        }
         }
-
-        // 出力結果の画像を表示
-        Base64ToImage(shellgeiImage, function(img) {
-            document.getElementById('resultImage').appendChild(img);
-        });
     }
 }
 
