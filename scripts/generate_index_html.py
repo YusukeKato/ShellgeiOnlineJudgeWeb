@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 update_date = "2024/09/05"
-version_str = "?version=1004"
+version_str = "?version=1005"
 
 site_title = "シェル芸オンラインジャッジ / SHELLGEI ONLINE JUDGE"
 summary_url = "https://yusukekato.jp/images/summary.jpg"
@@ -9,6 +9,7 @@ main_url = "https://shellgei-online-judge.com"
 blog_url = "https://yusukekato.jp"
 site_description = "シェル芸オンラインジャッジはシェル芸用の問題と自動ジャッジシステムを提供するウェブサービスです。Shell-gei Online Judge is a website that provides problems and an automated judgment system."
 favicon_url = main_url+"/favicon.jpg"
+white_url = main_url+"/white.jpg"
 css_url = main_url+"/style.css"
 
 def write_index_html(lang):
@@ -803,7 +804,7 @@ def write_index_html(lang):
     lines.append('<pre><code id="outputText" class="mono-font">NULL</code></pre>\n')
     lines.append('</div>\n')
     lines.append('<div class="img">\n')
-    lines.append('<img id="outputImage" src="'+favicon_url+'" alt="output image">\n')
+    lines.append('<img id="outputImage" src="'+white_url+'" alt="output image">\n')
     lines.append('</div>\n')
     lines.append('\n')
   if lang == "en":
