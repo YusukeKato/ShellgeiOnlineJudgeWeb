@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-update_date = "2024/09/05"
-version_str = "?version=1006"
+update_date = "2024/09/06"
+version_str = "?version=1007"
 
 site_title = "シェル芸オンラインジャッジ / SHELLGEI ONLINE JUDGE"
 summary_url = "https://yusukekato.jp/images/summary.jpg"
@@ -10,6 +10,7 @@ blog_url = "https://yusukekato.jp"
 site_description = "シェル芸オンラインジャッジはシェル芸用の問題と自動ジャッジシステムを提供するウェブサービスです。Shell-gei Online Judge is a website that provides problems and an automated judgment system."
 favicon_url = main_url+"/favicon.jpg"
 white_url = main_url+"/white.jpg"
+black_url = main_url+"/black.jpg"
 css_url = main_url+"/style.css"
 
 def write_index_html(lang):
@@ -436,6 +437,7 @@ def write_index_html(lang):
   lines.append('<details>\n')
   lines.append('<summary>2024</summary>\n')
   lines.append('<ul>\n')
+  lines.append('<li>09/06: 画像生成問題追加</li>\n')
   lines.append('<li>09/04: メンテナンス一旦完了、システム全体を見直し</li>\n')
   lines.append('<li>09/03: ブラウザ側のアプリを整理</li>\n')
   lines.append('<li>09/01: JavaScript側でもボタンの連打防止</li>\n')
@@ -803,8 +805,9 @@ def write_index_html(lang):
     lines.append('<div class="textClass">\n')
     lines.append('<pre><code id="outputText" class="mono-font">NULL</code></pre>\n')
     lines.append('</div>\n')
+    lines.append('<h3>想定画像</h3>\n')
     lines.append('<div class="img">\n')
-    lines.append('<img id="outputImage" src="'+white_url+'" alt="output image">\n')
+    lines.append('<img id="outputImage" src="'+black_url+'" alt="output image">\n')
     lines.append('</div>\n')
     lines.append('\n')
   if lang == "en":
@@ -821,8 +824,9 @@ def write_index_html(lang):
     lines.append('<div class="textClass">\n')
     lines.append('<pre><code id="outputText" class="mono-font">NULL</code></pre>\n')
     lines.append('</div>\n')
+    lines.append('<h3>Expected Output Image</h3>\n')
     lines.append('<div class="img">\n')
-    lines.append('<img id="outputImage" src="'+favicon_url+'" alt="output image">\n')
+    lines.append('<img id="outputImage" src="'+black_url+'" alt="output image">\n')
     lines.append('</div>\n')
     lines.append('\n')
 
@@ -871,8 +875,9 @@ def write_index_html(lang):
     lines.append('<div class="textClass">\n')
     lines.append('<pre><code id="userOutputText" class="mono-font">NULL</code></pre>\n')
     lines.append('</div>\n')
+    lines.append('<h3>出力画像</h3>\n')
     lines.append('<div class="img">\n')
-    lines.append('<img id="resultImage" src="'+white_url+'" alt="result image">')
+    lines.append('<img id="resultImage" src="'+black_url+'" alt="result image">')
     lines.append('</div>\n')
     lines.append('<h3>実行したシェル芸</h3>\n')
     lines.append('<div class="textClass">\n')
@@ -889,8 +894,9 @@ def write_index_html(lang):
     lines.append('<div class="textClass">\n')
     lines.append('<pre><code id="userOutputText" class="mono-font">NULL</code></pre>\n')
     lines.append('</div>\n')
+    lines.append('<h3>Output Image</h3>\n')
     lines.append('<div class="img">\n')
-    lines.append('<img id="resultImage" src="'+favicon_url+'" alt="result image">')
+    lines.append('<img id="resultImage" src="'+black_url+'" alt="result image">')
     lines.append('</div>\n')
     lines.append('<h3>Executed Shell-gei</h3>\n')
     lines.append('<div class="textClass">\n')
