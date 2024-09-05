@@ -257,7 +257,7 @@ async function submitClick() {
         // console.log(result_img_b64);
 
         // 正誤判定
-        if(shellgeiResult == replacedOutput || output_img_b64 == result_img_b64) {
+        if(shellgeiResult == replacedOutput && output_img_b64 == result_img_b64) {
             if(is_jp) {
                 resultText.innerHTML = "正解 !!😄!!";
 	        } else {
