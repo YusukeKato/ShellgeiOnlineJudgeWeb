@@ -278,18 +278,32 @@ async function submitClick() {
         console.log("Result: "+result_img_b64);
 
         // 正誤判定
-        if(shellgeiResult == replacedOutput && output_img_b64 == result_img_b64) {
+        // if(shellgeiResult == replacedOutput && output_img_b64 == result_img_b64) {
+        if(shellgeiResult == replacedOutput) {
             if(is_jp) {
-                resultText.innerHTML = "正解 !!😄!!";
-	        } else {
-                resultText.innerHTML = "Correct !!😄!!";
-	        }
+                resultText.innerHTML = "テキスト：正解 !!😄!!";
+	    } else {
+                resultText.innerHTML = "Text: Correct !!😄!!";
+	    }
         } else {
             if(is_jp) {
-                resultText.innerHTML = "不正解 ...😭...";
-	        } else {
-                resultText.innerHTML = "Incorrect ...😭...";
-	        }
+                resultText.innerHTML = "テキスト：不正解 ...😭...";
+	    } else {
+                resultText.innerHTML = "Text: Incorrect ...😭...";
+	    }
+        }
+        if(output_img_b64 == shellgeiImage) {
+            if(is_jp) {
+                resultText.innerHTML = "画像：正解 !!😄!!";
+	    } else {
+                resultText.innerHTML = "Image: Correct !!😄!!";
+	    }
+        } else {
+            if(is_jp) {
+                resultText.innerHTML = "画像：不正解 ...😭...";
+	    } else {
+                resultText.innerHTML = "Image: Incorrect ...😭...";
+	    }
         }
     }
 }
