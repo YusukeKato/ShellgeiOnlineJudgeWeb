@@ -1,5 +1,5 @@
 // パラメータ
-let version = 1006;
+let version = 1007;
 const limit_length = parseInt(1000);
 let mainUrl = 'https://shellgei-online-judge.com/';
 let is_enable_button = true;
@@ -233,12 +233,18 @@ async function submitClick() {
                 break;
 	        }
         }
+        
+        // 出力結果の処理
+        if(shellgeiResult == '\n') shellgeiResult = 'NULL';
+        if(shellgeiResult == '\r') shellgeiResult = 'NULL';
+        if(shellgeiResult == ' ') shellgeiResult = 'NULL';
 
         // 想定出力画像をbase64に変換
         var output_img = document.getElementById('outputImage');
         var output_img_b64 = ImageToBase64(output_img, "image/jpeg")
 
         // 出力結果の画像を表示
+        document.getElementById('resultImage').src = mainUrl+'black.jpg';
         shellgeiImage = 'data:image/jpeg;base64,'+shellgeiImage;
         document.getElementById('resultImage').src = shellgeiImage;
 
@@ -246,8 +252,9 @@ async function submitClick() {
         var result_img = document.getElementById('resultImage');
         var result_img_b64 = ImageToBase64(result_img, "image/jpeg")
 
-        console.log(output_img_b64);
-        console.log(result_img_b64);
+        // base64 image log
+        // console.log(output_img_b64);
+        // console.log(result_img_b64);
 
         // 正誤判定
         if(shellgeiResult == replacedOutput || output_img_b64 == result_img_b64) {
