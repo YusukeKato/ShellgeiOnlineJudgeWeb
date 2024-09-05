@@ -127,6 +127,8 @@ function postSend(shellgei) {
 
 // reference: https://qiita.com/yasumodev/items/e1708f01ff87692185cd
 function ImageToBase64(img, mime_type) {
+    const canvasElement = document.getElementById('canvas'); 
+    if(canvasElement) canvasElement.remove();
     var canvas = document.createElement('canvas');
     canvas.width  = img.width;
     canvas.height = img.height;
