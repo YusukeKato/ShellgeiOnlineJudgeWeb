@@ -1,5 +1,5 @@
 // パラメータ
-let version = 1008;
+let version = 1010;
 const limit_length = parseInt(1000);
 let mainUrl = 'https://shellgei-online-judge.com/';
 let is_enable_button = true;
@@ -61,7 +61,14 @@ function selectClickFunc(problemNum) {
     }
     getText('inputText', mainUrl+'input/'+problemNum+'.txt?version='+version);
     getText('outputText', mainUrl+'output/'+problemNum+'.txt?version='+version);
-    document.getElementById("outputImage").src = mainUrl+'problem_images/'+problemNum+'.jpg?version='+version;
+    // document.getElementById("outputImage").src = mainUrl+'problem_images/'+problemNum+'.jpg?version='+version;
+    let outputImageParent = document.getElementById('outputImage');
+    let img_outputImage = document.createElement('img');
+    img_outputImage.src = mainUrl+'problem_images/'+problemNum+'.jpg?version='+version;
+    img_outputImage.alt = 'output image';
+    img_outputImage.width = 200;
+    img_outputImage.height = 200;
+    outputImageParent.appendChild(img_outputImage);
 
     let selected = document.getElementById('selectedText');
     selected.innerHTML = problemNum;
@@ -241,16 +248,27 @@ async function submitClick() {
 
         // 想定出力画像をbase64に変換
         var output_img = document.getElementById('outputImage');
-        var output_img_b64 = ImageToBase64(output_img, "image/jpeg")
+        const firstChild_outputImage = output_img.firstElementChild;
+        var output_img_b64 = ImageToBase64(firstChild_outputImage, "image/jpeg")
 
         // 出力結果の画像を表示
-        document.getElementById('resultImage').src = mainUrl+'black.jpg';
+        let resultImageParent = document.getElementById('resultImage');
+        while (resultImageParent.firstChild) {
+            resultImageParent.removeChild(resultImageParent.firstChild);
+        }
+        resultImageParent.removeChild(firstChild_tmp_resultImage);
+        let img_resultImage = document.createElement('img');
         shellgeiImage = 'data:image/jpeg;base64,'+shellgeiImage;
-        document.getElementById('resultImage').src = shellgeiImage;
+        img_resultImage.src = shellgeiImage;
+        img_resultImage.alt = 'result image';
+        img_resultImage.width = 200;
+        img_resultImage.height = 200;
+        resultImageParent.appendChild(img_resultImage);
 
         // 出力結果の画像をbase64で再び取得
         var result_img = document.getElementById('resultImage');
-        var result_img_b64 = ImageToBase64(result_img, "image/jpeg")
+        const firstChild_resultImage = result_img.firstElementChild;
+        var result_img_b64 = ImageToBase64(firstChild_resultImage, "image/jpeg")
 
         // base64 image log
         console.log("Expected: "+output_img_b64);

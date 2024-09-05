@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 update_date = "2024/09/06"
-version_str = "?version=1011"
+version_str = "?version=1012"
 
 site_title = "シェル芸オンラインジャッジ / SHELLGEI ONLINE JUDGE"
 summary_url = "https://yusukekato.jp/images/summary.jpg"
@@ -812,8 +812,8 @@ def write_index_html(lang):
     lines.append('<pre><code id="outputText" class="mono-font">NULL</code></pre>\n')
     lines.append('</div>\n')
     lines.append('<h3>想定画像</h3>\n')
-    lines.append('<div class="img">\n')
-    lines.append('<img id="outputImage" src="'+black_url+'" alt="output image">\n')
+    lines.append('<div class="img" id="outputImage">\n')
+    # lines.append('<img id="outputImage" src="'+black_url+'" alt="output image">\n')
     lines.append('</div>\n')
     lines.append('\n')
   if lang == "en":
@@ -831,8 +831,8 @@ def write_index_html(lang):
     lines.append('<pre><code id="outputText" class="mono-font">NULL</code></pre>\n')
     lines.append('</div>\n')
     lines.append('<h3>Expected Output Image</h3>\n')
-    lines.append('<div class="img">\n')
-    lines.append('<img id="outputImage" src="'+black_url+'" alt="output image">\n')
+    lines.append('<div class="img" id="outputImage">\n')
+    #lines.append('<img id="outputImage" src="'+black_url+'" alt="output image">\n')
     lines.append('</div>\n')
     lines.append('\n')
 
@@ -882,8 +882,8 @@ def write_index_html(lang):
     lines.append('<pre><code id="userOutputText" class="mono-font">NULL</code></pre>\n')
     lines.append('</div>\n')
     lines.append('<h3>出力画像</h3>\n')
-    lines.append('<div class="img">\n')
-    lines.append('<img id="resultImage" src="'+black_url+'" alt="result image">')
+    lines.append('<div class="img" id="resultImage">\n')
+    #lines.append('<img id="resultImage" src="'+black_url+'" alt="result image">')
     lines.append('</div>\n')
     lines.append('<h3>実行したシェル芸</h3>\n')
     lines.append('<div class="textClass">\n')
@@ -901,8 +901,8 @@ def write_index_html(lang):
     lines.append('<pre><code id="userOutputText" class="mono-font">NULL</code></pre>\n')
     lines.append('</div>\n')
     lines.append('<h3>Output Image</h3>\n')
-    lines.append('<div class="img">\n')
-    lines.append('<img id="resultImage" src="'+black_url+'" alt="result image">')
+    lines.append('<div class="img" id="resultImage">\n')
+    #lines.append('<img id="resultImage" src="'+black_url+'" alt="result image">')
     lines.append('</div>\n')
     lines.append('<h3>Executed Shell-gei</h3>\n')
     lines.append('<div class="textClass">\n')
