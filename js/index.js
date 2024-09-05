@@ -256,7 +256,6 @@ async function submitClick() {
         while (resultImageParent.firstChild) {
             resultImageParent.removeChild(resultImageParent.firstChild);
         }
-        resultImageParent.removeChild(firstChild_tmp_resultImage);
         let img_resultImage = document.createElement('img');
         shellgeiImage = 'data:image/jpeg;base64,'+shellgeiImage;
         img_resultImage.src = shellgeiImage;
