@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 update_date = "2024/09/06"
-version_str = "?version=1029"
+version_str = "?version=1030"
 
 site_title = "シェル芸オンラインジャッジ / SHELLGEI ONLINE JUDGE"
 summary_url = "https://yusukekato.jp/images/summary.jpg"
@@ -268,8 +268,8 @@ def write_index_html(lang):
     lines.append('</ul>\n')
     lines.append('<h3>制約</h3>\n')
     lines.append('<ul>\n')
-    lines.append('<li>実行時間 : 3.0s</li>\n')
-    lines.append('<li>入出力の文字数 : 1000</li>\n')
+    lines.append('<li>実行時間 : 5.0s</li>\n')
+    lines.append('<li>入出力の文字数 : 1000000</li>\n')
     lines.append('</ul>\n')
     lines.append('</details>\n')
     lines.append('\n')
@@ -293,8 +293,8 @@ def write_index_html(lang):
     lines.append('</ul>\n')
     lines.append('<h3>Limitations</h3>\n')
     lines.append('<ul>\n')
-    lines.append('<li>Run time : 3.0s</li>\n')
-    lines.append('<li>Number of characters (in/out) : 1000</li>\n')
+    lines.append('<li>Run time : 5.0s</li>\n')
+    lines.append('<li>Number of characters (in/out) : 1000000</li>\n')
     lines.append('</ul>\n')
     lines.append('</details>\n')
     lines.append('\n')

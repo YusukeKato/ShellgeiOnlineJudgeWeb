@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1020;
+var version = 1021;
 const limit_length = parseInt(1000000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
@@ -22,7 +22,7 @@ var resultImageParent = document.getElementById('resultImage');
 // タイムアウト処理用関数
 function timeout() {
     clearInterval(timerId);
-    shellgeiResult = 'timeout:3000ms\n';
+    shellgeiResult = 'timeout: 5000ms\n';
     let timeoutTxt = shellgeiResult;
     userOutput.innerHTML = timeoutTxt;
     resultText.innerHTML = timeoutTxt;
@@ -179,7 +179,7 @@ async function submitClick() {
     let fn = function() {
         is_enable_button = true;
     };
-    setTimeout(fn, 3000);
+    setTimeout(fn, 5000);
 
     // 実行中に表示を切り替え
     userOutput.innerHTML = "Running...";
@@ -255,33 +255,33 @@ async function submitClick() {
         resultImageParent.appendChild(img_resultImage);
 
         setTimeout(() => {
-        // 想定出力画像をbase64に変換
-        var outputImageChild = outputImageParent.lastElementChild;
-        var output_img_b64 = ImageToBase64(outputImageChild, "image/jpeg", "output_img_tmp")
+            // 想定出力画像をbase64に変換
+            var outputImageChild = outputImageParent.lastElementChild;
+            var output_img_b64 = ImageToBase64(outputImageChild, "image/jpeg", "output_img_tmp")
 
-        // 出力結果の画像をbase64で再び取得
-        var resultImageChild = resultImageParent.lastElementChild;
-        var result_img_b64 = ImageToBase64(resultImageChild, "image/jpeg", "result_img_tmp")
+            // 出力結果の画像をbase64で再び取得
+            var resultImageChild = resultImageParent.lastElementChild;
+            var result_img_b64 = ImageToBase64(resultImageChild, "image/jpeg", "result_img_tmp")
 
-        // base64 image log
-        console.log("Shellgei Output: "+shellgeiImage);
-        console.log("Expected: "+output_img_b64);
-        console.log("Result: "+result_img_b64);
+            // base64 image log
+            console.log("Shellgei Output: "+shellgeiImage);
+            console.log("Expected: "+output_img_b64);
+            console.log("Result: "+result_img_b64);
 
-        // 正誤判定
-        if(shellgeiResult == replacedOutput && output_img_b64 == result_img_b64) {
-            if(is_jp) {
-                resultText.innerHTML = "正解 !!😄!!";
+            // 正誤判定
+            if(shellgeiResult == replacedOutput && output_img_b64 == result_img_b64) {
+                if(is_jp) {
+                    resultText.innerHTML = "正解 !!😄!!";
+                } else {
+                    resultText.innerHTML = "Correct !!😄!!";
+                }
             } else {
-                resultText.innerHTML = "Correct !!😄!!";
+                if(is_jp) {
+                    resultText.innerHTML = "不正解 ...😭...";
+                } else {
+                    resultText.innerHTML = "Incorrect ...😭...";
+                }
             }
-        } else {
-            if(is_jp) {
-                resultText.innerHTML = "不正解 ...😭...";
-            } else {
-                resultText.innerHTML = "Incorrect ...😭...";
-            }
-        }
         }, 500);
     }
 }
