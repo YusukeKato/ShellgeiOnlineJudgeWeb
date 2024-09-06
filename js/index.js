@@ -99,6 +99,10 @@ function selectClickFunc(problemNum) {
     // img_outputImage.height = 200;
     outputImageParent.appendChild(img_outputImage);
 
+    deleteNewline(userOutput);
+    deleteNewline(resultOutput);
+    deleteNewline(st);
+
     selected.innerHTML = problemNum;
 }
 function selectClick1() {
@@ -261,9 +265,6 @@ async function submitClick() {
         // 出力結果の画像をbase64で再び取得
         var resultImageChild = resultImageParent.lastElementChild;
         var result_img_b64 = ImageToBase64(resultImageChild, "image/jpeg", "result_img_tmp")
-        while(result_img_b64.length < 10) {
-            result_img_b64 = ImageToBase64(resultImageChild, "image/jpeg", "result_img_tmp")
-        }
 
         // base64 image log
         console.log("Shellgei Output: "+shellgeiImage);
