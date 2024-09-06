@@ -254,6 +254,7 @@ async function submitClick() {
         // img_resultImage.height = 200;
         resultImageParent.appendChild(img_resultImage);
 
+        setTimeout(() => {
         // 想定出力画像をbase64に変換
         var outputImageChild = outputImageParent.lastElementChild;
         var output_img_b64 = ImageToBase64(outputImageChild, "image/jpeg", "output_img_tmp")
@@ -261,8 +262,6 @@ async function submitClick() {
         // 出力結果の画像をbase64で再び取得
         var resultImageChild = resultImageParent.lastElementChild;
         var result_img_b64 = ImageToBase64(resultImageChild, "image/jpeg", "result_img_tmp")
-        resultImageChild = resultImageParent.lastElementChild;
-        result_img_b64 = ImageToBase64(resultImageChild, "image/jpeg", "result_img_tmp")
 
         // base64 image log
         console.log("Shellgei Output: "+shellgeiImage);
@@ -283,6 +282,7 @@ async function submitClick() {
                 resultText.innerHTML = "Incorrect ...😭...";
             }
         }
+        }, 500);
     }
 }
 
