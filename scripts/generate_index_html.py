@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 update_date = "2024/09/06"
-version_str = "?version=1018"
+version_str = "?version=1021"
 
 site_title = "シェル芸オンラインジャッジ / SHELLGEI ONLINE JUDGE"
 summary_url = "https://yusukekato.jp/images/summary.jpg"
@@ -169,6 +169,7 @@ def write_index_html(lang):
     lines.append('<li><a href="https://github.com/YusukeKato/ShellgeiOnlineJudgeWeb">GitHub - ShellgeiOnlineJudgeWeb</a></li>\n')
     lines.append('<li><a href="https://github.com/YusukeKato/ShellgeiOnlineJudgeServer">GitHub - ShellgeiOnlineJudgeServer</a></li>\n')
     lines.append('<li><a href="https://github.com/YusukeKato/ShellgeiOnlineJudgeData">GitHub - ShellgeiOnlineJudgeData</a></li>\n')
+    lines.append('</ul>\n')
     lines.append('<h3>Thanks</h3>\n')
     lines.append('<ul>\n')
     lines.append('<li>Thanks to the following references.</li>\n')
