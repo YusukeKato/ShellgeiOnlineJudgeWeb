@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1022;
+var version = 1023;
 const limit_length = parseInt(1000000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
@@ -65,8 +65,8 @@ function getText(objectId, fileName) {
                 for(i = 0; i < lines.length; i++) {
                     if(i != lines.length-1) line += lines[i] + '\n';
                 }
-		        line = line.replace(/</g, '&lt;');
-		        line = line.replace(/>/g, '&gt;');
+                line = line.replace(/</g, '&lt;');
+                line = line.replace(/>/g, '&gt;');
                 result.insertAdjacentHTML('afterbegin', line);
             } else {
                 result.textContent = 'Error: Could not get problem files!!';
@@ -80,6 +80,7 @@ function getText(objectId, fileName) {
 
 // 問題選択処理用関数
 function selectClickFunc(problemNum) {
+    // テキスト更新
     if(is_jp) {
         getText('problemText', mainUrl+'problem_jp/'+problemNum+'.txt?version='+version);
     } else {
@@ -87,7 +88,7 @@ function selectClickFunc(problemNum) {
     }
     getText('inputText', mainUrl+'input/'+problemNum+'.txt?version='+version);
     getText('outputText', mainUrl+'output/'+problemNum+'.txt?version='+version);
-    // document.getElementById("outputImage").src = mainUrl+'problem_images/'+problemNum+'.jpg?version='+version;
+    // 想定画像を更新
     while (outputImageParent.firstChild) {
         outputImageParent.removeChild(outputImageParent.firstChild);
     }
@@ -95,11 +96,13 @@ function selectClickFunc(problemNum) {
     img_outputImage.src = mainUrl+'problem_images/'+problemNum+'.jpg?version='+version;
     img_outputImage.alt = 'output image';
     img_outputImage.id = 'output_image_child';
-    // img_outputImage.width = 200;
-    // img_outputImage.height = 200;
     outputImageParent.appendChild(img_outputImage);
-
+    // 選択した問題IDを更新
     selected.innerHTML = problemNum;
+    // 余計な空白と改行を削除
+    userOutput = deleteNewline(userOutput);
+    resultText = deleteNewline(resultText);
+    st = deleteNewline(st);
 }
 function selectClick1() {
     let problem = document.getElementById('selectForm1');
@@ -174,7 +177,7 @@ async function submitClick() {
     }
 
     // 実行を開始したらボタンを無効にする
-    // 3秒後に有効にする
+    // 5秒後に有効にする
     is_enable_button = false;
     let fn = function() {
         is_enable_button = true;
@@ -197,7 +200,7 @@ async function submitClick() {
         userOutput.innerHTML = "Exceeded character limit: 1000000";
         resultText.innerHTML = "Exceeded character limit: 1000000";
         st.innerHTML = "Exceeded character limit: 1000000";
-    } else if(cmdline.value.length == 0) {
+    } else if(cmdline.value.length == 0 || cmdline.value == '\n' || cmdline.value == '\r' || cmdline.value == ' ') {
         userOutput.innerHTML = "Error: No input";
         resultText.innerHTML = "Error: No input";
         st.innerHTML = "Error: No input";
@@ -250,8 +253,6 @@ async function submitClick() {
         img_resultImage.src = shellgeiImage;
         img_resultImage.alt = 'result image';
         img_resultImage.id = 'result_img_child';
-        // img_resultImage.width = 200;
-        // img_resultImage.height = 200;
         resultImageParent.appendChild(img_resultImage);
 
         setTimeout(() => {
@@ -264,9 +265,9 @@ async function submitClick() {
             var result_img_b64 = ImageToBase64(resultImageChild, "image/jpeg", "result_img_tmp")
 
             // base64 image log
-            console.log("Shellgei Output: "+shellgeiImage);
-            console.log("Expected: "+output_img_b64);
-            console.log("Result: "+result_img_b64);
+            // console.log("Shellgei Output: "+shellgeiImage);
+            // console.log("Expected: "+output_img_b64);
+            // console.log("Result: "+result_img_b64);
 
             // 正誤判定
             if(shellgeiResult == replacedOutput && output_img_b64 == result_img_b64) {
