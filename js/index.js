@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1016;
+var version = 1018;
 const limit_length = parseInt(1000000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
@@ -27,6 +27,27 @@ function timeout() {
     userOutput.innerHTML = timeoutTxt;
     resultText.innerHTML = timeoutTxt;
     st.innerHTML = timeoutTxt;
+}
+
+// reference: https://kinocolog.com/javascript_first_last_slice/
+function deleteNewline(text_strings) {
+    // 先頭の改行と空白を除去
+    for(let i = 0; i < text_strings.length; i++) {
+        if(text_strings.charAt(i) == '\n' || text_strings.charAt(i) == ' ') {
+            text_strings = text_strings.slice(1);
+            i--;
+        } else {
+            break;
+        }
+    }
+    // 末尾の改行と空白を除去
+    for(let i = text_strings.length-1; i >= 0; i--) {
+        if(text_strings.charAt(i) == '\n' || text_strings.charAt(i) == ' ') {
+            text_strings = text_strings.slice(0, -1);
+        } else {
+            break;
+        }
+    }
 }
 
 // 問題データ取得関数
@@ -130,23 +151,29 @@ function postSend(shellgei) {
 }
 
 // reference: https://qiita.com/yasumodev/items/e1708f01ff87692185cd
-function ImageToBase64_output(img, mime_type, id_name) {
+function ImageToBase64(img, mime_type, id_name) {
     let canvasElement = document.getElementById(id_name); 
     if(canvasElement) canvasElement.remove();
     let canvas = document.createElement('canvas');
     canvas.id = id_name;
     canvas.width  = img.width;
     canvas.height = img.height;
+    var ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0);
     return canvas.toDataURL(mime_type);
 }
-function ImageToBase64_result(img, mime_type, id_name) {
+
+function ImageToBase64_ImageData(img, mime_type, id_name) {
     let canvasElement = document.getElementById(id_name); 
     if(canvasElement) canvasElement.remove();
     let canvas = document.createElement('canvas');
     canvas.id = id_name;
     canvas.width  = img.width;
     canvas.height = img.height;
-    return canvas.toDataURL(mime_type);
+    var ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0, img.width, img.height);
+    var imageData = ctx.getImageData(0, 0, img.width, img.height).data;
+    return imageData;
 }
 
 // シェル芸の実行処理用関数
@@ -219,39 +246,8 @@ async function submitClick() {
         replacedOutput = replacedOutput.replace(/\n$/g, '');
         replacedOutput = replacedOutput.replace(/ $/g, '');
 
-        // 先頭の改行と空白を除去
-        // reference: https://kinocolog.com/javascript_first_last_slice/
-        for(let i = 0; i < shellgeiResult.length; i++) {
-            if(shellgeiResult.charAt(i) == '\n' || shellgeiResult.charAt(i) == ' ') {
-                shellgeiResult = shellgeiResult.slice(1);
-                i--;
-            } else {
-                break;
-	        }
-        }
-        for(let i = 0; i < replacedOutput.length; i++) {
-            if(replacedOutput.charAt(i) == '\n' || replacedOutput.charAt(i) == ' ') {
-                replacedOutput = replacedOutput.slice(1);
-                i--;
-            } else {
-                break;
-	        }
-        }
-        // 末尾の改行と空白を除去
-        for(let i = shellgeiResult.length-1; i >= 0; i--) {
-            if(shellgeiResult.charAt(i) == '\n' || shellgeiResult.charAt(i) == ' ') {
-                shellgeiResult = shellgeiResult.slice(0, -1);
-            } else {
-                break;
-	        }
-        }
-        for(let i = replacedOutput.length-1; i >= 0; i--) {
-            if(replacedOutput.charAt(i) == '\n' || replacedOutput.charAt(i) == ' ') {
-                replacedOutput = replacedOutput.slice(0, -1);
-            } else {
-                break;
-	        }
-        }
+        shellgeiResult = deleteNewline(shellgeiResult);
+        replacedOutput = deleteNewline(replacedOutput);
         
         // 出力結果の処理
         if(shellgeiResult == '\n') shellgeiResult = 'NULL';
@@ -259,8 +255,9 @@ async function submitClick() {
         if(shellgeiResult == ' ') shellgeiResult = 'NULL';
 
         // 想定出力画像をbase64に変換
-        var firstChild_outputImage = outputImageParent.firstElementChild;
-        var output_img_b64 = ImageToBase64_output(firstChild_outputImage, "image/jpeg", "output_img_tmp")
+        var outputImageChild = outputImageParent.lastElementChild;
+        var output_img_b64 = ImageToBase64(outputImageChild, "image/jpeg", "output_img_tmp")
+        var output_img_b64_ImageData = ImageToBase64_ImageData(outputImageChild, "image/jpeg", "output_img_tmp")
 
         // 出力結果の画像を表示
         while (resultImageParent.firstChild) {
@@ -276,13 +273,16 @@ async function submitClick() {
         resultImageParent.appendChild(img_resultImage);
 
         // 出力結果の画像をbase64で再び取得
-        const firstChild_resultImage = resultImageParent.firstElementChild;
-        var result_img_b64 = ImageToBase64_result(firstChild_resultImage, "image/jpeg", "result_img_tmp")
+        var resultImageChild = resultImageParent.lastElementChild;
+        var result_img_b64 = ImageToBase64(resultImageChild, "image/jpeg", "result_img_tmp")
+        var result_img_b64_ImageData = ImageToBase64_ImageData(resultImageChild, "image/jpeg", "result_img_tmp")
 
         // base64 image log
         console.log("Shellgei Output: "+shellgeiImage);
         console.log("Expected: "+output_img_b64);
         console.log("Result: "+result_img_b64);
+        console.log("Expected_ImageData: "+output_img_b64_ImageData);
+        console.log("Result_ImageData: "+result_img_b64_ImageData);
 
         // 正誤判定
         if(shellgeiResult == replacedOutput) {
@@ -300,15 +300,28 @@ async function submitClick() {
         }
         if(output_img_b64 == result_img_b64) {
             if(is_jp) {
-                resultText.innerHTML += "\n画像：正解 !!😄!!";
+                resultText.innerHTML += "\n画像（Base64）：正解 !!😄!!";
 	    } else {
-                resultText.innerHTML += "\nImage: Correct !!😄!!";
+                resultText.innerHTML += "\nImage(Base64): Correct !!😄!!";
 	    }
         } else {
             if(is_jp) {
-                resultText.innerHTML += "\n画像：不正解 ...😭...";
+                resultText.innerHTML += "\n画像（Base64）：不正解 ...😭...";
 	    } else {
-                resultText.innerHTML += "\nImage: Incorrect ...😭...";
+                resultText.innerHTML += "\nImage(Base64): Incorrect ...😭...";
+	    }
+        }
+        if(output_img_b64_ImageData == result_img_b64_ImageData) {
+            if(is_jp) {
+                resultText.innerHTML += "\n画像（ImageData）：正解 !!😄!!";
+	    } else {
+                resultText.innerHTML += "\nImage(ImageData): Correct !!😄!!";
+	    }
+        } else {
+            if(is_jp) {
+                resultText.innerHTML += "\n画像（ImageData）：不正解 ...😭...";
+	    } else {
+                resultText.innerHTML += "\nImage(ImageData): Incorrect ...😭...";
 	    }
         }
     }
