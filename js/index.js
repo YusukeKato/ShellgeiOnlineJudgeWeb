@@ -99,10 +99,6 @@ function selectClickFunc(problemNum) {
     // img_outputImage.height = 200;
     outputImageParent.appendChild(img_outputImage);
 
-    deleteNewline(userOutput);
-    deleteNewline(resultOutput);
-    deleteNewline(st);
-
     selected.innerHTML = problemNum;
 }
 function selectClick1() {
@@ -245,10 +241,6 @@ async function submitClick() {
         if(shellgeiResult == '\r') shellgeiResult = 'NULL';
         if(shellgeiResult == ' ') shellgeiResult = 'NULL';
 
-        // 想定出力画像をbase64に変換
-        var outputImageChild = outputImageParent.lastElementChild;
-        var output_img_b64 = ImageToBase64(outputImageChild, "image/jpeg", "output_img_tmp")
-
         // 出力結果の画像を表示
         while (resultImageParent.firstChild) {
             resultImageParent.removeChild(resultImageParent.firstChild);
@@ -261,6 +253,10 @@ async function submitClick() {
         // img_resultImage.width = 200;
         // img_resultImage.height = 200;
         resultImageParent.appendChild(img_resultImage);
+
+        // 想定出力画像をbase64に変換
+        var outputImageChild = outputImageParent.lastElementChild;
+        var output_img_b64 = ImageToBase64(outputImageChild, "image/jpeg", "output_img_tmp")
 
         // 出力結果の画像をbase64で再び取得
         var resultImageChild = resultImageParent.lastElementChild;
