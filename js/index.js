@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1018;
+var version = 1019;
 const limit_length = parseInt(1000000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
@@ -163,6 +163,7 @@ function ImageToBase64(img, mime_type, id_name) {
     return canvas.toDataURL(mime_type);
 }
 
+/*
 function ImageToBase64_ImageData(img, mime_type, id_name) {
     let canvasElement = document.getElementById(id_name); 
     if(canvasElement) canvasElement.remove();
@@ -175,6 +176,7 @@ function ImageToBase64_ImageData(img, mime_type, id_name) {
     var imageData = ctx.getImageData(0, 0, img.width, img.height).data;
     return imageData;
 }
+*/
 
 // シェル芸の実行処理用関数
 async function submitClick() {
@@ -257,7 +259,7 @@ async function submitClick() {
         // 想定出力画像をbase64に変換
         var outputImageChild = outputImageParent.lastElementChild;
         var output_img_b64 = ImageToBase64(outputImageChild, "image/jpeg", "output_img_tmp")
-        var output_img_b64_ImageData = ImageToBase64_ImageData(outputImageChild, "image/jpeg", "output_img_tmp")
+        // var output_img_b64_ImageData = ImageToBase64_ImageData(outputImageChild, "image/jpeg", "output_img_tmp")
 
         // 出力結果の画像を表示
         while (resultImageParent.firstChild) {
@@ -275,7 +277,7 @@ async function submitClick() {
         // 出力結果の画像をbase64で再び取得
         var resultImageChild = resultImageParent.lastElementChild;
         var result_img_b64 = ImageToBase64(resultImageChild, "image/jpeg", "result_img_tmp")
-        var result_img_b64_ImageData = ImageToBase64_ImageData(resultImageChild, "image/jpeg", "result_img_tmp")
+        // var result_img_b64_ImageData = ImageToBase64_ImageData(resultImageChild, "image/jpeg", "result_img_tmp")
 
         // base64 image log
         console.log("Shellgei Output: "+shellgeiImage);
@@ -311,6 +313,7 @@ async function submitClick() {
                 resultText.innerHTML += "\nImage(Base64): Incorrect ...😭...";
 	    }
         }
+        /*
         if(output_img_b64_ImageData == result_img_b64_ImageData) {
             if(is_jp) {
                 resultText.innerHTML += "\n画像（ImageData）：正解 !!😄!!";
@@ -324,6 +327,7 @@ async function submitClick() {
                 resultText.innerHTML += "\nImage(ImageData): Incorrect ...😭...";
 	    }
         }
+	*/
     }
 }
 
