@@ -283,8 +283,8 @@ async function submitClick() {
         console.log("Shellgei Output: "+shellgeiImage);
         console.log("Expected: "+output_img_b64);
         console.log("Result: "+result_img_b64);
-        console.log("Expected_ImageData: "+output_img_b64_ImageData);
-        console.log("Result_ImageData: "+result_img_b64_ImageData);
+        // console.log("Expected_ImageData: "+output_img_b64_ImageData);
+        // console.log("Result_ImageData: "+result_img_b64_ImageData);
 
         // 正誤判定
         if(shellgeiResult == replacedOutput) {
