@@ -3,6 +3,9 @@ This repository is the web app for SHELLGEI ONLINE JUDGE.
 
 SHELLGEI ONLINE JUDGE: https://shellgei-online-judge.com/
 
+# Your problem idea is welcome!
+https://github.com/YusukeKato/ShellgeiOnlineJudge/discussions/categories/problem-ideas
+
 # Discussions
 https://github.com/YusukeKato/ShellgeiOnlineJudge/discussions
 
