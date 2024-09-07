@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 update_date = "2024/09/07"
-version_str = "?version=1035"
+version_str = "?version=1036"
 
 site_title = "シェル芸オンラインジャッジ / SHELLGEI ONLINE JUDGE"
 summary_url = "https://yusukekato.jp/images/summary.jpg"
@@ -98,7 +98,7 @@ def write_index_html(lang):
   elif lang == "en":
     lines.append('<h3>LAST UPDATED</h3>\n')
   lines.append('<ul>\n')
-  lines.append('<li>'+update_date+'</li>\n')
+  lines.append('<li>- '+update_date+'</li>\n')
   lines.append('</ul>\n')
   lines.append('\n')
 
@@ -106,18 +106,18 @@ def write_index_html(lang):
   if lang == "jp":
     lines.append('<h3>お知らせ</h3>\n')
     lines.append('<ul>\n')
-    lines.append('<li>2024/09/06: 画像問題を追加</li>\n')
-    lines.append('<li>2024/05/03: シェル芸オンラインジャッジ一周年</li>\n')
-    lines.append('<li>2024/04/24: 練習問題を追加</li>\n')
-    lines.append('<li>2023/05/03: シェル芸オンラインジャッジ開始</li>\n')
+    lines.append('<li>- 2024/09/06: 画像問題を追加</li>\n')
+    lines.append('<li>- 2024/05/03: シェル芸オンラインジャッジ一周年</li>\n')
+    lines.append('<li>- 2024/04/24: 練習問題を追加</li>\n')
+    lines.append('<li>- 2023/05/03: シェル芸オンラインジャッジ開始</li>\n')
     lines.append('</ul>\n')
   elif lang == "en":
     lines.append('<h3>NEWS</h3>\n')
     lines.append('<ul>\n')
-    lines.append('<li>2024/09/06: Added Image Problems</li>\n')
-    lines.append('<li>2024/05/03: 1st Anniversary of SHELLGEI ONLINE JUDGE</li>\n')
-    lines.append('<li>2024/04/24: Added Exercise Problems</li>\n')
-    lines.append('<li>2023/05/03: Start of SHELLGEI ONLINE JUDGE</li>\n')
+    lines.append('<li>- 2024/09/06: Added Image Problems</li>\n')
+    lines.append('<li>- 2024/05/03: 1st Anniversary of SHELLGEI ONLINE JUDGE</li>\n')
+    lines.append('<li>- 2024/04/24: Added Exercise Problems</li>\n')
+    lines.append('<li>- 2023/05/03: Start of SHELLGEI ONLINE JUDGE</li>\n')
     lines.append('</ul>\n')
   lines.append('<div class="slide">\n')
   lines.append('<img src="'+blog_url+'/images/news/news_20230503.jpg">\n')
@@ -137,8 +137,6 @@ def write_index_html(lang):
     lines.append('<li>シェル芸で問題を解いて遊べます。</li>\n')
     lines.append('<li>出力結果の正誤判定も自動で行われます。</li>\n')
     lines.append('</ul>\n')
-    lines.append('<h3>Shellgei Online Judge Discussions</h3>\n')
-    lines.append('<li><a href="https://github.com/YusukeKato/ShellgeiOnlineJudge/discussions">GitHub - Discussions</a></li>\n')
     lines.append('<h3>Shellgei Online Judge Repositories</h3>\n')
     lines.append('<ul>\n')
     lines.append('<li><a href="https://github.com/YusukeKato/ShellgeiOnlineJudge">GitHub - ShellgeiOnlineJudge</a></li>\n')
@@ -176,8 +174,6 @@ def write_index_html(lang):
     lines.append('<li>Solving problems with shell-gei.</li>\n')
     lines.append('<li>Automatic correct/incorrect judgment.</li>\n')
     lines.append('</ul>\n')
-    lines.append('<h3>Shellgei Online Judge Discussions</h3>\n')
-    lines.append('<li><a href="https://github.com/YusukeKato/ShellgeiOnlineJudge/discussions">GitHub - Discussions</a></li>\n')
     lines.append('<h3>Shellgei Online Judge Repositories</h3>\n')
     lines.append('<ul>\n')
     lines.append('<li><a href="https://github.com/YusukeKato/ShellgeiOnlineJudge">GitHub - ShellgeiOnlineJudge</a></li>\n')
@@ -523,6 +519,10 @@ def write_index_html(lang):
     lines.append('<li><a href="https://twitter.com/yusukekato_main">@yusukekato_main</a></li>\n')
     lines.append('<li>タグ：#シェル芸オンラインジャッジ</li>\n')
     lines.append('</ul>\n')
+    lines.append('<h3>Shellgei Online Judge Discussions</h3>\n')
+    lines.append('<ul>\n')
+    lines.append('<li><a href="https://github.com/YusukeKato/ShellgeiOnlineJudge/discussions">GitHub - Discussions</a></li>\n')
+    lines.append('</ul>\n')
     lines.append('<h3>その他</h3>\n')
     lines.append('<ul>\n')
     lines.append('<li>GitHub : <a href="https://github.com/YusukeKato">YusukeKato</a></li>\n')
@@ -539,6 +539,10 @@ def write_index_html(lang):
     lines.append('<ul>\n')
     lines.append('<li><a href="https://twitter.com/yusukekato_main">@yusukekato_main</a></li>\n')
     lines.append('<li>hashtag: #ShellgeiOnlineJudge</li>\n')
+    lines.append('</ul>\n')
+    lines.append('<h3>Shellgei Online Judge Discussions</h3>\n')
+    lines.append('<ul>\n')
+    lines.append('<li><a href="https://github.com/YusukeKato/ShellgeiOnlineJudge/discussions">GitHub - Discussions</a></li>\n')
     lines.append('</ul>\n')
     lines.append('<h3>Others</h3>\n')
     lines.append('<ul>\n')
