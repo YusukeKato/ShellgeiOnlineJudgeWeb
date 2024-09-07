@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 update_date = "2024/09/07"
-version_str = "?version=1036"
+version_str = "?version=1037"
 
 site_title = "シェル芸オンラインジャッジ / SHELLGEI ONLINE JUDGE"
 summary_url = "https://yusukekato.jp/images/summary.jpg"
@@ -956,7 +956,7 @@ def write_index_html(lang):
   lines.append('</script>\n')
   lines.append('<script src="'+main_url+'/index.js'+version_str+'"></script>\n')
   lines.append('</div> <!-- alldiv -->\n')
-  lines.append('<h1 class="heading-028-2" data-label="">&copy; 2023 YusukeKato All rights reserved.</h1>\n')
+  lines.append('<h1 class="heading-028-2" data-label="">GitHub - <a href="https://github.com/YusukeKato/ShellgeiOnlineJudge/discussions">SHELLGEI ONLINE JUDGE Discussions</a><br>&copy; 2023 YusukeKato All rights reserved.</h1>\n')
   lines.append('</body>\n')
   lines.append('</html>\n')
 
