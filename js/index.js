@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1029;
+var version = 1030;
 const limit_length = parseInt(1000000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
@@ -48,6 +48,7 @@ function deleteNewline(text_strings) {
             break;
         }
     }
+    return text_strings;
 }
 
 // 問題データ取得関数
@@ -236,8 +237,8 @@ async function submitClick() {
         replacedOutput = replacedOutput.replace(/\n$/g, '');
         replacedOutput = replacedOutput.replace(/ $/g, '');
 
-        // shellgeiResult = deleteNewline(shellgeiResult);
-        // replacedOutput = deleteNewline(replacedOutput);
+        shellgeiResult = deleteNewline(shellgeiResult);
+        replacedOutput = deleteNewline(replacedOutput);
         
         // 出力結果の処理
         if(shellgeiResult == '\n') shellgeiResult = 'NULL';
