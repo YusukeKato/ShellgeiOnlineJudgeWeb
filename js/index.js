@@ -239,8 +239,8 @@ async function submitClick() {
         replacedOutput = replacedOutput.replace(/\n$/g, '');
         replacedOutput = replacedOutput.replace(/ $/g, '');
 
-        shellgeiResult = deleteNewline(shellgeiResult);
-        replacedOutput = deleteNewline(replacedOutput);
+        // shellgeiResult = deleteNewline(shellgeiResult);
+        // replacedOutput = deleteNewline(replacedOutput);
         
         // 出力結果の処理
         if(shellgeiResult == '\n') shellgeiResult = 'NULL';
