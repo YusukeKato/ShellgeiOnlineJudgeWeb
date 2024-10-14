@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1027;
+var version = 1028;
 const limit_length = parseInt(1000000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
@@ -228,6 +228,9 @@ async function submitClick() {
         // 想定出力と実行結果を比較
         let replacedOutput = outputText.innerHTML.toString();
 
+        console.log("text Expected 1: "+replacedOutput);
+        console.log("text Result 1: "+shellgeiResult);
+
         // 前処理
         shellgeiResult = shellgeiResult.replace(/\r/g, '');
         shellgeiResult = shellgeiResult.replace(/\n$/g, '');
@@ -272,7 +275,7 @@ async function submitClick() {
             console.log("Image Result: "+result_img_b64);
 
             // 正誤判定
-            if(shellgeiResult === replacedOutput && output_img_b64 === result_img_b64) {
+            if(shellgeiResult == replacedOutput && output_img_b64 == result_img_b64) {
                 if(is_jp) {
                     resultText.innerHTML = "正解 !!😄!!";
                 } else {
