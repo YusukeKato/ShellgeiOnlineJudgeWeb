@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1031;
+var version = 1032;
 const limit_length = parseInt(1000000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
@@ -289,6 +289,14 @@ async function submitClick() {
         }, 500);
     }
 }
+
+// Ctrl+Enterで投稿
+document.body.addEventListener('keydown',
+    event => {
+        if (event.key === 'v' && event.key === 'Enter') {
+            submitClick();
+        }
+    });
 
 // 実行ボタンの設定
 var submitButton = document.getElementById('submitButton');
