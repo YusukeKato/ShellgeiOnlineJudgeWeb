@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1036;
+var version = 1037;
 const limit_length = parseInt(1000000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
@@ -18,6 +18,10 @@ var st = document.getElementById('shellgeiText');
 var selected = document.getElementById('selectedText');
 var outputImageParent = document.getElementById('outputImage');
 var resultImageParent = document.getElementById('resultImage');
+
+// Ctrl+Enterで投稿
+var keydownCtrl = false;
+var keydownEnter = false;
 
 // タイムアウト処理用関数
 function timeout() {
@@ -293,14 +297,17 @@ async function submitClick() {
 // Ctrl+Enterで投稿
 document.addEventListener("keydown", keyDownHandler, false);
 function keyDownHandler(e) {
-    console.log("KeyDownHandler");
     if (e.ctrlKey) {
-        console.log("Ctrl");
+        keydownCtrl = true;
     }
     if (e.key === 'Enter') {
-        console.log("Enter");
+        keydownEnter = true;
     }
-    // submitClick();
+    if (keydownCtrl && keydownEnter) {
+        keydownCtrl = false;
+        keydownEnter = false;
+        submitClick();
+    }
 }
 
 // 実行ボタンの設定
