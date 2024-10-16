@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 update_date = "2024/10/16"
-version_str = "?version=1051"
+version_str = "?version=1053"
 
 site_title = "シェル芸オンラインジャッジ / SHELLGEI ONLINE JUDGE"
 summary_url = "https://yusukekato.jp/images/summary.jpg"
@@ -449,6 +449,7 @@ def write_index_html(lang):
   lines.append('<details>\n')
   lines.append('<summary>2024</summary>\n')
   lines.append('<ul>\n')
+  lines.append('<li>10/16: Ctrl+Enterでシェル芸を実行できる機能追加</li>\n')
   lines.append('<li>10/14: ジャッジ修正（正誤判定で必ず正解になる問題の解決）</li>\n')
   lines.append('<li>10/01: メンテナンス、HTTPS更新</li>\n')
   lines.append('<li>09/07: テキスト修正</li>\n')
@@ -878,7 +879,7 @@ def write_index_html(lang):
     lines.append('<textarea name="cmdline" cols="50" rows="12" id="cmdline" placeholder="ここにシェル芸を記述"></textarea>\n')
     lines.append('</div>\n')
     lines.append('<div class="centerClass">\n')
-    lines.append('<input type="button" value="実行" class="buttonClass" id="submitButton">\n')
+    lines.append('<input type="button" value="実行（Ctrl+Enter）" class="buttonClass" id="submitButton">\n')
     lines.append('</div>\n')
     lines.append('\n')
   if lang == "en":
@@ -902,7 +903,7 @@ def write_index_html(lang):
     lines.append('<textarea name="cmdline" cols="50" rows="12" id="cmdline" placeholder="Write your shell-gei here"></textarea>\n')
     lines.append('</div>\n')
     lines.append('<div class="centerClass">\n')
-    lines.append('<input type="button" value="RUN" class="buttonClass" id="submitButton">\n')
+    lines.append('<input type="button" value="RUN (Ctrl+Enter)" class="buttonClass" id="submitButton">\n')
     lines.append('</div>\n')
     lines.append('\n')
 

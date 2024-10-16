@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1037;
+var version = 1039;
 const limit_length = parseInt(1000000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
@@ -295,6 +295,7 @@ async function submitClick() {
 }
 
 // Ctrl+Enterで投稿
+// 参考：https://developer.mozilla.org/ja/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Paddle_and_keyboard_controls
 document.addEventListener("keydown", keyDownHandler, false);
 function keyDownHandler(e) {
     if (e.ctrlKey) {
