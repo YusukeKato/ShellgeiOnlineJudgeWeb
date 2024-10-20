@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1047;
+var version = 1048;
 const limit_length = parseInt(1000000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
@@ -316,18 +316,6 @@ var submitButton = document.getElementById('submitButton');
 submitButton.addEventListener('click', submitClick);
 
 // コマンドを入力するボタン
-function input_pipe() {
-    input_command(" | ");
-}
-function input_single_quote() {
-    input_command("'");
-}
-function input_double_quote() {
-    input_command('"');
-}
-function input_back_quote() {
-    input_command("`");
-}
 function input_echo() {
     input_command("echo ");
 }
@@ -364,6 +352,19 @@ function input_ffmpeg() {
 function input_textimg() {
     input_command("textimg ");
 }
+
+function input_pipe() {
+    input_command(" | ");
+}
+function input_single_quote() {
+    input_command("'");
+}
+function input_double_quote() {
+    input_command('"');
+}
+function input_back_quote() {
+    input_command("`");
+}
 function input_txt_path() {
     input_command("input.txt ");
 }
@@ -376,14 +377,6 @@ function input_command(cmd_str) {
     cmdline.value = cmdline.value + cmd_str;
 }
 
-var commandButton_pipe = document.getElementById('command-pipe');
-commandButton_pipe.addEventListener('click', input_pipe);
-var commandButton_single_quote = document.getElementById('command-single-quote');
-commandButton_single_quote.addEventListener('click', input_single_quote);
-var commandButton_double_quote = document.getElementById('command-double-quote');
-commandButton_double_quote.addEventListener('click', input_double_quote);
-var commandButton_back_quote = document.getElementById('command-back-quote');
-commandButton_back_quote.addEventListener('click', input_back_quote);
 var commandButton_echo = document.getElementById('command-echo');
 commandButton_echo.addEventListener('click', input_echo);
 var commandButton_cat = document.getElementById('command-cat');
@@ -408,6 +401,15 @@ var commandButton_ffmpeg = document.getElementById('command-ffmpeg');
 commandButton_ffmpeg.addEventListener('click', input_ffmpeg);
 var commandButton_textimg = document.getElementById('command-textimg');
 commandButton_textimg.addEventListener('click', input_textimg);
+
+var commandButton_pipe = document.getElementById('command-pipe');
+commandButton_pipe.addEventListener('click', input_pipe);
+var commandButton_single_quote = document.getElementById('command-single-quote');
+commandButton_single_quote.addEventListener('click', input_single_quote);
+var commandButton_double_quote = document.getElementById('command-double-quote');
+commandButton_double_quote.addEventListener('click', input_double_quote);
+var commandButton_back_quote = document.getElementById('command-back-quote');
+commandButton_back_quote.addEventListener('click', input_back_quote);
 var commandButton_txt_path = document.getElementById('command-txt-path');
 commandButton_txt_path.addEventListener('click', input_txt_path);
 var commandButton_img_path = document.getElementById('command-img-path');
