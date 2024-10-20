@@ -475,7 +475,7 @@ select {
   gap: 6px;
 }
 .command-button {
-  padding: 10px 20px;
+  padding: 10px 10px;
   background-color: #FFF;
   color: #000;
   border: none;
@@ -715,9 +715,19 @@ select {
     100% {left: -100%;}
   }
 
+  #click-commands {
+    gap: 3px;
+  }
   .command-button {
-  font-size: 0.9rem;
-}
+    padding: 6px 6px;
+    background-color: #FFF;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
 
   /*
    * その他
