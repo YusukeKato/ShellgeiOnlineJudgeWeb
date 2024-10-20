@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1046;
+var version = 1047;
 const limit_length = parseInt(1000000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
@@ -331,8 +331,44 @@ function input_back_quote() {
 function input_echo() {
     input_command("echo ");
 }
+function input_cat() {
+    input_command("cat ");
+}
+function input_sed() {
+    input_command("sed 's///' ");
+}
+function input_find() {
+    input_command("find ");
+}
+function input_grep() {
+    input_command("grep ");
+}
 function input_awk() {
-    input_command("awk '{}'");
+    input_command("awk '{}' ");
+}
+function input_wc() {
+    input_command("wc ");
+}
+function input_sort() {
+    input_command("sort ");
+}
+function input_uniq() {
+    input_command("uniq ");
+}
+function input_convert() {
+    input_command("convert ");
+}
+function input_ffmpeg() {
+    input_command("ffmpeg ");
+}
+function input_textimg() {
+    input_command("textimg ");
+}
+function input_txt_path() {
+    input_command("input.txt ");
+}
+function input_img_path() {
+    input_command("/media/output.jpg ");
 }
 
 function input_command(cmd_str) {
@@ -350,5 +386,29 @@ var commandButton_back_quote = document.getElementById('command-back-quote');
 commandButton_back_quote.addEventListener('click', input_back_quote);
 var commandButton_echo = document.getElementById('command-echo');
 commandButton_echo.addEventListener('click', input_echo);
+var commandButton_cat = document.getElementById('command-cat');
+commandButton_cat.addEventListener('click', input_cat);
+var commandButton_sed = document.getElementById('command-sed');
+commandButton_sed.addEventListener('click', input_sed);
+var commandButton_find = document.getElementById('command-find');
+commandButton_find.addEventListener('click', input_find);
+var commandButton_grep = document.getElementById('command-grep');
+commandButton_grep.addEventListener('click', input_grep);
 var commandButton_awk = document.getElementById('command-awk');
 commandButton_awk.addEventListener('click', input_awk);
+var commandButton_wc = document.getElementById('command-wc');
+commandButton_wc.addEventListener('click', input_wc);
+var commandButton_sort = document.getElementById('command-sort');
+commandButton_sort.addEventListener('click', input_sort);
+var commandButton_uniq = document.getElementById('command-uniq');
+commandButton_uniq.addEventListener('click', input_uniq);
+var commandButton_convert = document.getElementById('command-convert');
+commandButton_convert.addEventListener('click', input_convert);
+var commandButton_ffmpeg = document.getElementById('command-ffmpeg');
+commandButton_ffmpeg.addEventListener('click', input_ffmpeg);
+var commandButton_textimg = document.getElementById('command-textimg');
+commandButton_textimg.addEventListener('click', input_textimg);
+var commandButton_txt_path = document.getElementById('command-txt-path');
+commandButton_txt_path.addEventListener('click', input_txt_path);
+var commandButton_img_path = document.getElementById('command-img-path');
+commandButton_img_path.addEventListener('click', input_img_path);
