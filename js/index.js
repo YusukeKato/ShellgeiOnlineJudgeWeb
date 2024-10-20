@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1042;
+var version = 1044;
 const limit_length = parseInt(1000000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
@@ -317,7 +317,16 @@ submitButton.addEventListener('click', submitClick);
 
 // コマンドを入力するボタン
 function input_pipe() {
-    input_command("| ");
+    input_command(" | ");
+}
+function input_single_quote() {
+    input_command("'");
+}
+function input_double_quote() {
+    input_command('"');
+}
+function input_back_quote() {
+    input_command("`");
 }
 function input_echo() {
     input_command("echo ");
@@ -333,6 +342,12 @@ function input_command(cmd_str) {
 
 var commandButton_pipe = document.getElementById('command-pipe');
 commandButton_pipe.addEventListener('click', input_pipe);
+var commandButton_single_quote = document.getElementById('command-single-quote');
+commandButton_single_quote.addEventListener('click', input_single_quote);
+var commandButton_double_quote = document.getElementById('command-double-quote');
+commandButton_double_quote.addEventListener('click', input_double_quote);
+var commandButton_back_quote = document.getElementById('command-back-quote');
+commandButton_back_quote.addEventListener('click', input_back_quote);
 var commandButton_echo = document.getElementById('command-echo');
 commandButton_echo.addEventListener('click', input_echo);
 var commandButton_awk = document.getElementById('command-awk');

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 update_date = "2024/10/20"
-version_str = "?version=1057"
+version_str = "?version=1060"
 
 site_title = "シェル芸オンラインジャッジ / SHELLGEI ONLINE JUDGE"
 summary_url = "https://yusukekato.jp/images/summary.jpg"
@@ -902,7 +902,10 @@ def write_index_html(lang):
     lines.append('</details>\n')
   # command button
   lines.append('<div id="click-commands">\n')
-  lines.append('<button class="command-button" id="command-pipe">「|」</button>\n')
+  lines.append('<button class="command-button" id="command-pipe"> |(pipe) </button>\n')
+  lines.append('<button class="command-button" id="command-single-quote"> \'(single) </button>\n')
+  lines.append('<button class="command-button" id="command-double-quote"> "(double) </button>\n')
+  lines.append('<button class="command-button" id="command-back-quote"> `(back) </button>\n')
   lines.append('<button class="command-button" id="command-echo">echo</button>\n')
   lines.append('<button class="command-button" id="command-awk">awk</button>\n')
   lines.append('</div>\n')
