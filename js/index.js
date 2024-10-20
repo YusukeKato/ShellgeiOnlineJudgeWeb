@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1044;
+var version = 1045;
 const limit_length = parseInt(1000000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
