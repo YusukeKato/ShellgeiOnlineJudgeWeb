@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1039;
+var version = 1040;
 const limit_length = parseInt(1000000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
@@ -314,3 +314,26 @@ function keyDownHandler(e) {
 // 実行ボタンの設定
 var submitButton = document.getElementById('submitButton');
 submitButton.addEventListener('click', submitClick);
+
+// コマンドを入力するボタン
+function input_pipe() {
+    input_command("| ");
+}
+function input_echo() {
+    input_command("echo ");
+}
+function input_awk() {
+    input_command("awk '{}'");
+}
+
+function input_command(cmd_str) {
+    var cmdline = document.getElementById('cmdline');
+    cmdline.value = cmdline.value + cmd_str;
+}
+
+var commandButton_pipe = document.getElementById('command-pipe');
+submitButton.addEventListener('click', input_pipe);
+var commandButton_echo = document.getElementById('command-echo');
+submitButton.addEventListener('click', input_echo);
+var commandButton_awk = document.getElementById('command-awk');
+submitButton.addEventListener('click', input_awk);

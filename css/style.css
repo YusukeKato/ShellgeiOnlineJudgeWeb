@@ -465,6 +465,29 @@ select {
 }
 
 /*
+ * コマンドを入力するボタン
+ * 参考：https://job-info.hateblo.jp/entry/2024/08/11/204440
+ */
+#click-commands {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+.command-button {
+  padding: 10px 20px;
+  background-color: #FFF;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.test-button:hover {
+  background-color: #DDD;
+}
+
+/*
  * その他
  */
 .centerClass {

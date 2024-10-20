@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-update_date = "2024/10/16"
-version_str = "?version=1054"
+update_date = "2024/10/20"
+version_str = "?version=1055"
 
 site_title = "シェル芸オンラインジャッジ / SHELLGEI ONLINE JUDGE"
 summary_url = "https://yusukekato.jp/images/summary.jpg"
@@ -449,6 +449,7 @@ def write_index_html(lang):
   lines.append('<details>\n')
   lines.append('<summary>2024</summary>\n')
   lines.append('<ul>\n')
+  lines.append('<li>10/20: コマンドを入力するボタンを設置</li>\n')
   lines.append('<li>10/16: Ctrl+Enterでシェル芸を実行できる機能追加</li>\n')
   lines.append('<li>10/14: ジャッジ修正（正誤判定で必ず正解になる問題の解決）</li>\n')
   lines.append('<li>10/01: メンテナンス、HTTPS更新</li>\n')
@@ -867,6 +868,7 @@ def write_index_html(lang):
     lines.append('<h2>実行</h2>\n')
     lines.append('<details>\n')
     lines.append('<summary>注意点</summary>\n')
+    lines.append('<h3>注意点</h3>\n')
     lines.append('<ul>\n')
     lines.append('<li>入力の取得 : "cat input.txt"</li>\n')
     lines.append('<li>画像の出力 : "media/output.jpg"</li>\n')
@@ -874,18 +876,17 @@ def write_index_html(lang):
     lines.append('<li>危険なシェル芸（危険シェル芸）は禁止</li>\n')
     lines.append('<li>余計な空白や改行は正誤判定に影響する可能性あり</li>\n')
     lines.append('</ul>\n')
+    lines.append('<h3>実行制限</h3>\n')
+    lines.append('<ul>\n')
+    lines.append('<li>実行時間 : 5.0s</li>\n')
+    lines.append('<li>入出力文字数 : 1000000</li>\n')
+    lines.append('</ul>\n')
     lines.append('</details>\n')
-    lines.append('<div class="centerClass">\n')
-    lines.append('<textarea name="cmdline" cols="50" rows="12" id="cmdline" placeholder="ここにシェル芸を記述"></textarea>\n')
-    lines.append('</div>\n')
-    lines.append('<div class="centerClass">\n')
-    lines.append('<input type="button" value="実行（Ctrl+Enter）" class="buttonClass" id="submitButton">\n')
-    lines.append('</div>\n')
-    lines.append('\n')
   if lang == "en":
     lines.append('<h2>Run</h2>\n')
     lines.append('<details>\n')
     lines.append('<summary>Attention</summary>\n')
+    lines.append('<h3>Attention</h3>\n')
     lines.append('<ul>\n')
     lines.append('<li>Get Input : "cat input.txt"</li>\n')
     lines.append('<li>Output Image as "media/output.jpg"</li>\n')
@@ -899,6 +900,21 @@ def write_index_html(lang):
     lines.append('<li>Number of characters (in/out) : 1000000</li>\n')
     lines.append('</ul>\n')
     lines.append('</details>\n')
+  # command button
+  lines.append('<div id="click-commands">\n')
+  lines.append('<button class="command-button" id="command-pipe">「|」</button>\n')
+  lines.append('<button class="command-button" id="command-echo">echo</button>\n')
+  lines.append('<button class="command-button" id="command-awk">awk</button>\n')
+  lines.append('</div>\n')
+  if lang == "jp":
+    lines.append('<div class="centerClass">\n')
+    lines.append('<textarea name="cmdline" cols="50" rows="12" id="cmdline" placeholder="ここにシェル芸を記述"></textarea>\n')
+    lines.append('</div>\n')
+    lines.append('<div class="centerClass">\n')
+    lines.append('<input type="button" value="実行（Ctrl+Enter）" class="buttonClass" id="submitButton">\n')
+    lines.append('</div>\n')
+    lines.append('\n')
+  if lang == "en":
     lines.append('<div class="centerClass">\n')
     lines.append('<textarea name="cmdline" cols="50" rows="12" id="cmdline" placeholder="Write your shell-gei here"></textarea>\n')
     lines.append('</div>\n')
