@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1048;
+var version = 1049;
 const limit_length = parseInt(1000000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
@@ -84,7 +84,8 @@ function getText(objectId, fileName) {
 }
 
 // 問題選択処理用関数
-function selectClickFunc(problemNum) {
+function selectClickFunc(problemNum_arg) {
+    problemNum = problemNum_arg;
     // テキスト更新
     if(is_jp) {
         getText('problemText', mainUrl+'problem_jp/'+problemNum+'.txt?version='+version);

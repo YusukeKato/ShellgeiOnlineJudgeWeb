@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-update_date = "2024/10/20"
-version_str = "?version=1065"
+update_date = "2024/10/22"
+version_str = "?version=1066"
 
 site_title = "シェル芸オンラインジャッジ / SHELLGEI ONLINE JUDGE"
 summary_url = "https://yusukekato.jp/images/summary.jpg"
@@ -449,6 +449,7 @@ def write_index_html(lang):
   lines.append('<details>\n')
   lines.append('<summary>2024</summary>\n')
   lines.append('<ul>\n')
+  lines.append('<li>10/22: 問題選択にバグがあったので修正</li>\n')
   lines.append('<li>10/20: コマンドを入力するボタンを設置</li>\n')
   lines.append('<li>10/16: Ctrl+Enterでシェル芸を実行できる機能追加</li>\n')
   lines.append('<li>10/14: ジャッジ修正（正誤判定で必ず正解になる問題の解決）</li>\n')
