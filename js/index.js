@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1049;
+var version = 1050;
 const limit_length = parseInt(1000000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
@@ -317,43 +317,88 @@ var submitButton = document.getElementById('submitButton');
 submitButton.addEventListener('click', submitClick);
 
 // コマンドを入力するボタン
-function input_echo() {
-    input_command("echo ");
-}
-function input_cat() {
-    input_command("cat ");
-}
-function input_sed() {
-    input_command("sed 's///' ");
-}
-function input_find() {
-    input_command("find ");
-}
-function input_grep() {
-    input_command("grep ");
-}
+// abcdefghijklmnopqrstuvwxyz
+// a
 function input_awk() {
     input_command("awk '{}' ");
 }
-function input_wc() {
-    input_command("wc ");
+// c
+function input_cat() {
+    input_command("cat ");
 }
-function input_sort() {
-    input_command("sort ");
-}
-function input_uniq() {
-    input_command("uniq ");
+function input_concat() {
+    input_command("concat ");
 }
 function input_convert() {
     input_command("convert ");
 }
+function input_cowsay() {
+    input_command("cowsay ");
+}
+function input_cut_c() {
+    input_command("cut -c ");
+}
+function input_cut_df() {
+    input_command("cut -d ',' -f 2 ");
+}
+// e
+function input_echo() {
+    input_command("echo ");
+}
+// f
 function input_ffmpeg() {
     input_command("ffmpeg ");
+}
+function input_find() {
+    input_command("find ");
+}
+function input_for() {
+    input_command("for i in {1..10};do echo $i;done ");
+}
+// g
+function input_grep() {
+    input_command("grep ");
+}
+// l
+function input_ls() {
+    input_command("ls ");
+}
+// p
+function input_ps() {
+    input_command("ps ");
+}
+// s
+function input_sed() {
+    input_command("sed 's///' ");
+}
+function input_seq() {
+    input_command("seq ");
+}
+function input_sort() {
+    input_command("sort ");
+}
+// t
+function input_tail_c() {
+    input_command("tail -c ");
+}
+function input_tail_n() {
+    input_command("tail -n ");
 }
 function input_textimg() {
     input_command("textimg ");
 }
-
+// u
+function input_uniq() {
+    input_command("uniq ");
+}
+function input_unkosay() {
+    input_command("unko.say ");
+}
+// w
+function input_wc() {
+    input_command("wc ");
+}
+// other
 function input_pipe() {
     input_command(" | ");
 }
@@ -372,37 +417,69 @@ function input_txt_path() {
 function input_img_path() {
     input_command("/media/output.jpg ");
 }
-
+// main function
 function input_command(cmd_str) {
     var cmdline = document.getElementById('cmdline');
     cmdline.value = cmdline.value + cmd_str;
 }
 
-var commandButton_echo = document.getElementById('command-echo');
-commandButton_echo.addEventListener('click', input_echo);
-var commandButton_cat = document.getElementById('command-cat');
-commandButton_cat.addEventListener('click', input_cat);
-var commandButton_sed = document.getElementById('command-sed');
-commandButton_sed.addEventListener('click', input_sed);
-var commandButton_find = document.getElementById('command-find');
-commandButton_find.addEventListener('click', input_find);
-var commandButton_grep = document.getElementById('command-grep');
-commandButton_grep.addEventListener('click', input_grep);
+// abcdefghijklmnopqrstuvwxyz
+// a
 var commandButton_awk = document.getElementById('command-awk');
 commandButton_awk.addEventListener('click', input_awk);
-var commandButton_wc = document.getElementById('command-wc');
-commandButton_wc.addEventListener('click', input_wc);
-var commandButton_sort = document.getElementById('command-sort');
-commandButton_sort.addEventListener('click', input_sort);
-var commandButton_uniq = document.getElementById('command-uniq');
-commandButton_uniq.addEventListener('click', input_uniq);
+// c
+var commandButton_cat = document.getElementById('command-cat');
+commandButton_cat.addEventListener('click', input_cat);
+var commandButton_concat = document.getElementById('command-concat');
+commandButton_concat.addEventListener('click', input_concat);
 var commandButton_convert = document.getElementById('command-convert');
 commandButton_convert.addEventListener('click', input_convert);
+var commandButton_cowsay = document.getElementById('command-cowsay');
+commandButton_cowsay.addEventListener('click', input_cowsay);
+var commandButton_cut_c = document.getElementById('command-cut-c');
+commandButton_cut_c.addEventListener('click', input_cut_c);
+var commandButton_cut_df = document.getElementById('command-cut-df');
+commandButton_cut_df.addEventListener('click', input_cut_df);
+// e
+var commandButton_echo = document.getElementById('command-echo');
+commandButton_echo.addEventListener('click', input_echo);
+// f
 var commandButton_ffmpeg = document.getElementById('command-ffmpeg');
 commandButton_ffmpeg.addEventListener('click', input_ffmpeg);
+var commandButton_find = document.getElementById('command-find');
+commandButton_find.addEventListener('click', input_find);
+// g
+var commandButton_grep = document.getElementById('command-grep');
+commandButton_grep.addEventListener('click', input_grep);
+// l
+var commandButton_ls = document.getElementById('command-ls');
+commandButton_ls.addEventListener('click', input_ls);
+// p
+var commandButton_ps = document.getElementById('command-ps');
+commandButton_ps.addEventListener('click', input_ps);
+// s
+var commandButton_sed = document.getElementById('command-sed');
+commandButton_sed.addEventListener('click', input_sed);
+var commandButton_seq = document.getElementById('command-seq');
+commandButton_seq.addEventListener('click', input_seq);
+var commandButton_sort = document.getElementById('command-sort');
+commandButton_sort.addEventListener('click', input_sort);
+// t
+var commandButton_tail_c = document.getElementById('command-tail-c');
+commandButton_tail_c.addEventListener('click', input_tail_c);
+var commandButton_tail_n = document.getElementById('command-tail-n');
+commandButton_tail_n.addEventListener('click', input_tail_n);
 var commandButton_textimg = document.getElementById('command-textimg');
 commandButton_textimg.addEventListener('click', input_textimg);
-
+// u
+var commandButton_uniq = document.getElementById('command-uniq');
+commandButton_uniq.addEventListener('click', input_uniq);
+var commandButton_unkosay = document.getElementById('command-unkosay');
+commandButton_unkosay.addEventListener('click', input_unkosay);
+// w
+var commandButton_wc = document.getElementById('command-wc');
+commandButton_wc.addEventListener('click', input_wc);
+// other
 var commandButton_pipe = document.getElementById('command-pipe');
 commandButton_pipe.addEventListener('click', input_pipe);
 var commandButton_single_quote = document.getElementById('command-single-quote');

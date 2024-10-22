@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 update_date = "2024/10/22"
-version_str = "?version=1066"
+version_str = "?version=1067"
 
 site_title = "シェル芸オンラインジャッジ / SHELLGEI ONLINE JUDGE"
 summary_url = "https://yusukekato.jp/images/summary.jpg"
@@ -902,19 +902,42 @@ def write_index_html(lang):
     lines.append('</ul>\n')
     lines.append('</details>\n')
   # command button
+  # abcdefghijklmnopqrstuvwxyz
   lines.append('<div id="click-commands">\n')
-  lines.append('<button class="command-button" id="command-echo">echo</button>\n')
-  lines.append('<button class="command-button" id="command-cat">cat</button>\n')
-  lines.append('<button class="command-button" id="command-sed">sed</button>\n')
-  lines.append('<button class="command-button" id="command-find">find</button>\n')
-  lines.append('<button class="command-button" id="command-grep">grep</button>\n')
+  # a
   lines.append('<button class="command-button" id="command-awk">awk</button>\n')
-  lines.append('<button class="command-button" id="command-wc">wc</button>\n')
-  lines.append('<button class="command-button" id="command-sort">sort</button>\n')
-  lines.append('<button class="command-button" id="command-uniq">uniq</button>\n')
+  # c
+  lines.append('<button class="command-button" id="command-cat">cat</button>\n')
+  lines.append('<button class="command-button" id="command-concat">concat</button>\n')
   lines.append('<button class="command-button" id="command-convert">convert</button>\n')
+  lines.append('<button class="command-button" id="command-cowsay">cowsay</button>\n')
+  lines.append('<button class="command-button" id="command-cut-c">cut -c</button>\n')
+  lines.append('<button class="command-button" id="command-cut-df">cut -d -f</button>\n')
+  # e
+  lines.append('<button class="command-button" id="command-echo">echo</button>\n')
+  # f
   lines.append('<button class="command-button" id="command-ffmpeg">ffmpeg</button>\n')
+  lines.append('<button class="command-button" id="command-find">find</button>\n')
+  # g
+  lines.append('<button class="command-button" id="command-grep">grep</button>\n')
+  # l
+  lines.append('<button class="command-button" id="command-ls">ls</button>\n')
+  # p
+  lines.append('<button class="command-button" id="command-ps">ps</button>\n')
+  # s
+  lines.append('<button class="command-button" id="command-sed">sed</button>\n')
+  lines.append('<button class="command-button" id="command-seq">seq</button>\n')
+  lines.append('<button class="command-button" id="command-sort">sort</button>\n')
+  # t
+  lines.append('<button class="command-button" id="command-tail-c">tail -c</button>\n')
+  lines.append('<button class="command-button" id="command-tail-n">tail -n</button>\n')
   lines.append('<button class="command-button" id="command-textimg">textimg</button>\n')
+  # u
+  lines.append('<button class="command-button" id="command-uniq">uniq</button>\n')
+  lines.append('<button class="command-button" id="command-unkosay">unko.say</button>\n')
+  # w
+  lines.append('<button class="command-button" id="command-wc">wc</button>\n')
+  # other
   lines.append('<button class="command-button" id="command-pipe"> |(pipe) </button>\n')
   lines.append('<button class="command-button" id="command-single-quote"> \'(single) </button>\n')
   lines.append('<button class="command-button" id="command-double-quote"> "(double) </button>\n')
