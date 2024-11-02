@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1055;
+var version = 1056;
 const limit_length = parseInt(1000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
@@ -245,7 +245,7 @@ async function submitClick() {
         resultImageParent.appendChild(img_resultImage);
 
         // 正誤判定
-        if(shellgeiJudge.indexOf("true") == -1) {
+        if(shellgeiJudge.indexOf("true") != -1) {
             if(is_jp) {
                 resultText.innerHTML = "正解 !!😄!!";
             } else {
