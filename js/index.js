@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1056;
+var version = 1057;
 const limit_length = parseInt(1000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
@@ -245,13 +245,25 @@ async function submitClick() {
         resultImageParent.appendChild(img_resultImage);
 
         // 正誤判定
-        if(shellgeiJudge.indexOf("true") != -1) {
+        if(shellgeiJudge.indexOf("1") != -1) {
             if(is_jp) {
                 resultText.innerHTML = "正解 !!😄!!";
             } else {
                 resultText.innerHTML = "Correct !!😄!!";
             }
-        } else {
+        } else if (shellgeiJudge.indexOf("2") != -1) {
+            if(is_jp) {
+                resultText.innerHTML = "文字列：正解\n画像：不正解";
+            } else {
+                resultText.innerHTML = "String: Correct\nImage: Incorrect";
+            }
+        } else if (shellgeiJudge.indexOf("3") != -1) {
+            if(is_jp) {
+                resultText.innerHTML = "文字列：不正解\n画像：正解";
+            } else {
+                resultText.innerHTML = "String: Incorrect\nImage: Correct";
+            }
+	} else {
             if(is_jp) {
                 resultText.innerHTML = "不正解 ...😭...";
             } else {
