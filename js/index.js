@@ -1,6 +1,6 @@
 // パラメータ
-var version = 1050;
-const limit_length = parseInt(1000000);
+var version = 1058;
+const limit_length = parseInt(1000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
 
@@ -10,6 +10,7 @@ var shellgeiResult = 'NULL';
 var shellgeiID = '0';
 var shellgeiDate = '0';
 var shellgeiImage = '';
+var shellgeiJudge = 'null';
 
 // HTMLの要素を編集
 var userOutput = document.getElementById('userOutputText');
@@ -147,6 +148,7 @@ function postSend(shellgei) {
                 shellgeiID = res.shellgei_id.toString();
                 shellgeiDate = res.shellgei_date.toString();
                 shellgeiImage = res.shellgei_image.toString();
+                shellgeiJudge = res.shellgei_judge.toString();
                 resolve("resolve");
             } else {
                 throw new Error("response error : null");
@@ -183,12 +185,12 @@ async function submitClick() {
     }
 
     // 実行を開始したらボタンを無効にする
-    // 5秒後に有効にする
+    // 3秒後に有効にする
     is_enable_button = false;
     let fn = function() {
         is_enable_button = true;
     };
-    setTimeout(fn, 5000);
+    setTimeout(fn, 3000);
 
     // 実行中に表示を切り替え
     userOutput.innerHTML = "Running...";
@@ -203,9 +205,9 @@ async function submitClick() {
     
     // 入力されたシェル芸が1文字以上1000文字未満であれば実行
     if(cmdline.value.length > limit_length) {
-        userOutput.innerHTML = "Exceeded character limit: 1000000";
-        resultText.innerHTML = "Exceeded character limit: 1000000";
-        st.innerHTML = "Exceeded character limit: 1000000";
+        userOutput.innerHTML = "Exceeded character limit: 1000";
+        resultText.innerHTML = "Exceeded character limit: 1000";
+        st.innerHTML = "Exceeded character limit: 1000";
     } else if(cmdline.value.length == 0 || cmdline.value == '\n' || cmdline.value == '\r' || cmdline.value == ' ') {
         userOutput.innerHTML = "Error: No input";
         resultText.innerHTML = "Error: No input";
@@ -213,7 +215,7 @@ async function submitClick() {
     } else {
         // タイムアウトを設定して実行
         timerId = setInterval('timeout()', 5000);
-        const txt = await postSend(cmdline.value + ' | head -n1000000');
+        const txt = await postSend(cmdline.value + ' | head -n1000');
         clearInterval(timerId);
 
         // 実行したシェル芸の文字列の処理
@@ -231,25 +233,6 @@ async function submitClick() {
             userOutput.innerHTML = "ERROR : NULL";
         }
 
-        // 想定出力と実行結果を比較
-        let replacedOutput = outputText.innerHTML.toString();
-
-        // 前処理
-        shellgeiResult = shellgeiResult.replace(/\r/g, '');
-        shellgeiResult = shellgeiResult.replace(/\n$/g, '');
-        shellgeiResult = shellgeiResult.replace(/ $/g, '');
-        replacedOutput = replacedOutput.replace(/\r/g, '');
-        replacedOutput = replacedOutput.replace(/\n$/g, '');
-        replacedOutput = replacedOutput.replace(/ $/g, '');
-
-        shellgeiResult = deleteNewline(shellgeiResult);
-        replacedOutput = deleteNewline(replacedOutput);
-        
-        // 出力結果の処理
-        if(shellgeiResult == '\n') shellgeiResult = 'NULL';
-        if(shellgeiResult == '\r') shellgeiResult = 'NULL';
-        if(shellgeiResult == ' ') shellgeiResult = 'NULL';
-
         // 出力結果の画像を表示
         while (resultImageParent.firstChild) {
             resultImageParent.removeChild(resultImageParent.firstChild);
@@ -261,37 +244,24 @@ async function submitClick() {
         img_resultImage.id = 'result_img_child';
         resultImageParent.appendChild(img_resultImage);
 
-        setTimeout(() => {
-            // 想定出力画像をbase64に変換
-            var outputImageChild = outputImageParent.lastElementChild;
-            var output_img_b64 = ImageToBase64(outputImageChild, "image/jpeg", "output_img_tmp")
-
-            // 出力結果の画像をbase64で再び取得
-            var resultImageChild = resultImageParent.lastElementChild;
-            var result_img_b64 = ImageToBase64(resultImageChild, "image/jpeg", "result_img_tmp")
-
-            // log
-            // console.log("text Expected: "+replacedOutput);
-            // console.log("text Result: "+shellgeiResult);
-            // console.log("Shellgei Image Output: "+shellgeiImage);
-            // console.log("Image Expected: "+output_img_b64);
-            // console.log("Image Result: "+result_img_b64);
-
-            // 正誤判定
-            if(shellgeiResult == replacedOutput && output_img_b64 == result_img_b64) {
-                if(is_jp) {
-                    resultText.innerHTML = "正解 !!😄!!";
-                } else {
-                    resultText.innerHTML = "Correct !!😄!!";
-                }
+        // 正誤判定
+        if(shellgeiJudge.indexOf("1") != -1) {
+            if(is_jp) {
+                resultText.innerHTML = "正解 !!😄!!";
             } else {
-                if(is_jp) {
-                    resultText.innerHTML = "不正解 ...😭...";
-                } else {
-                    resultText.innerHTML = "Incorrect ...😭...";
-                }
+                resultText.innerHTML = "Correct !!😄!!";
             }
-        }, 500);
+	} else {
+            if(is_jp) {
+                resultText.innerHTML = "不正解 ...😭...(" + shellgeiJudge + ")";
+            } else {
+                resultText.innerHTML = "Incorrect ...😭...(" + shellgeiJudge + ")";
+            }
+        }
+
+        // console.log("shellgeiJudge: "+shellgeiJudge);
+        // console.log("shellgeiResult: "+shellgeiResult);
+        // console.log("shellgeiImage: "+shellgeiImage);
     }
 }
 

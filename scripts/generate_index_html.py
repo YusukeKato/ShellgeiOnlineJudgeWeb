@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-update_date = "2024/10/22"
-version_str = "?version=1067"
+update_date = "2024/11/02"
+version_str = "?version=1075"
 
 site_title = "シェル芸オンラインジャッジ / SHELLGEI ONLINE JUDGE"
 summary_url = "https://yusukekato.jp/images/summary.jpg"
@@ -280,7 +280,7 @@ def write_index_html(lang):
     lines.append('<h3>制約</h3>\n')
     lines.append('<ul>\n')
     lines.append('<li>実行時間 : 5.0s</li>\n')
-    lines.append('<li>入出力の文字数 : 1000000</li>\n')
+    lines.append('<li>入出力の文字数 : 1000</li>\n')
     lines.append('</ul>\n')
     lines.append('</details>\n')
     lines.append('\n')
@@ -305,7 +305,7 @@ def write_index_html(lang):
     lines.append('<h3>Limitations</h3>\n')
     lines.append('<ul>\n')
     lines.append('<li>Run time : 5.0s</li>\n')
-    lines.append('<li>Number of characters (in/out) : 1000000</li>\n')
+    lines.append('<li>Number of characters (in/out) : 1000</li>\n')
     lines.append('</ul>\n')
     lines.append('</details>\n')
     lines.append('\n')
@@ -449,6 +449,8 @@ def write_index_html(lang):
   lines.append('<details>\n')
   lines.append('<summary>2024</summary>\n')
   lines.append('<ul>\n')
+  lines.append('<li>11/02: 正誤判定の処理をサーバ側へ移動（完了）</li>\n')
+  lines.append('<li>10/28: 正誤判定の処理をサーバ側へ移動</li>\n')
   lines.append('<li>10/22: 問題選択にバグがあったので修正</li>\n')
   lines.append('<li>10/20: コマンドを入力するボタンを設置</li>\n')
   lines.append('<li>10/16: Ctrl+Enterでシェル芸を実行できる機能追加</li>\n')
@@ -880,7 +882,7 @@ def write_index_html(lang):
     lines.append('<h3>実行制限</h3>\n')
     lines.append('<ul>\n')
     lines.append('<li>実行時間 : 5.0s</li>\n')
-    lines.append('<li>入出力文字数 : 1000000</li>\n')
+    lines.append('<li>入出力文字数 : 1000</li>\n')
     lines.append('</ul>\n')
     lines.append('</details>\n')
   if lang == "en":
@@ -898,7 +900,7 @@ def write_index_html(lang):
     lines.append('<h3>Limitations</h3>\n')
     lines.append('<ul>\n')
     lines.append('<li>Run time : 5.0s</li>\n')
-    lines.append('<li>Number of characters (in/out) : 1000000</li>\n')
+    lines.append('<li>Number of characters (in/out) : 1000</li>\n')
     lines.append('</ul>\n')
     lines.append('</details>\n')
   # command button
