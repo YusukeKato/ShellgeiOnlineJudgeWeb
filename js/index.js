@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1052;
+var version = 1053;
 const limit_length = parseInt(1000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
@@ -10,7 +10,7 @@ var shellgeiResult = 'NULL';
 var shellgeiID = '0';
 var shellgeiDate = '0';
 var shellgeiImage = '';
-var shellgeiJudge = 'false';
+var shellgeiJudge = 'null';
 
 // HTMLの要素を編集
 var userOutput = document.getElementById('userOutputText');
@@ -258,6 +258,8 @@ async function submitClick() {
                 resultText.innerHTML = "Incorrect ...😭...";
             }
         }
+
+        console.log("shellgeiJudge: "+shellgeiJudge);
     }
 }
 
