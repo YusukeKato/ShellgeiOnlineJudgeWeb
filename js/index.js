@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1058;
+var version = 1059;
 const limit_length = parseInt(1000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
@@ -243,6 +243,9 @@ async function submitClick() {
         img_resultImage.alt = 'result image';
         img_resultImage.id = 'result_img_child';
         resultImageParent.appendChild(img_resultImage);
+	
+        shellgeiJudge = shellgeiJudge.replace('\n', '');
+        shellgeiJudge = shellgeiJudge.replace('\r', '');
 
         // 正誤判定
         if(shellgeiJudge.indexOf("1") != -1) {
