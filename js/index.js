@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1059;
+var version = 1060;
 const limit_length = parseInt(1000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
@@ -34,6 +34,16 @@ function timeout() {
     st.innerHTML = timeoutTxt;
 }
 
+function getProblemNum() {
+    getText('generalProblem', mainUrl+'scripts/cnt_general_num.txt?version='+version, true);
+    getText('exerciseProblem', mainUrl+'scripts/cnt_execise_num.txt?version='+version, true);
+    getText('imageProblem', mainUrl+'scripts/cnt_image_num.txt?version='+version, true);
+}
+
+window.addEventListener("load", function() {
+    getProblemNum();
+});
+
 // reference: https://kinocolog.com/javascript_first_last_slice/
 function deleteNewline(text_strings) {
     // 先頭の改行と空白を除去
@@ -58,7 +68,7 @@ function deleteNewline(text_strings) {
 
 // 問題データ取得関数
 // reference: https://munibus.hatenablog.com/entry/2022/09/30/225938
-function getText(objectId, fileName) {
+function getText(objectId, fileName, addFlag) {
     let result = document.getElementById(objectId);
     let xhr = new XMLHttpRequest();
     xhr.open('GET', fileName, true);
@@ -73,7 +83,12 @@ function getText(objectId, fileName) {
                 }
                 line = line.replace(/</g, '&lt;');
                 line = line.replace(/>/g, '&gt;');
-                result.insertAdjacentHTML('afterbegin', line);
+                if (addFlag == true) {
+                    result.insertAdjacentHTML('afterbegin', result+line);
+                }
+                else if (addFlag == false) {
+                    result.insertAdjacentHTML('afterbegin', line);
+                }
             } else {
                 result.textContent = 'Error: Could not get problem files!!';
             }
@@ -89,12 +104,12 @@ function selectClickFunc(problemNum_arg) {
     problemNum = problemNum_arg;
     // テキスト更新
     if(is_jp) {
-        getText('problemText', mainUrl+'problem_jp/'+problemNum+'.txt?version='+version);
+        getText('problemText', mainUrl+'problem_jp/'+problemNum+'.txt?version='+version, false);
     } else {
-        getText('problemText', mainUrl+'problem_en/'+problemNum+'.txt?version='+version);
+        getText('problemText', mainUrl+'problem_en/'+problemNum+'.txt?version='+version, false);
     }
-    getText('inputText', mainUrl+'input/'+problemNum+'.txt?version='+version);
-    getText('outputText', mainUrl+'output/'+problemNum+'.txt?version='+version);
+    getText('inputText', mainUrl+'input/'+problemNum+'.txt?version='+version, false);
+    getText('outputText', mainUrl+'output/'+problemNum+'.txt?version='+version, false);
     // 想定画像を更新
     while (outputImageParent.firstChild) {
         outputImageParent.removeChild(outputImageParent.firstChild);

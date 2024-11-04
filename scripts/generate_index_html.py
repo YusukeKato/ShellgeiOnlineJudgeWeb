@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 update_date = "2024/11/04"
-version_str = "?version=1077"
+version_str = "?version=1078"
 
 site_title = "シェル芸オンラインジャッジ / SHELLGEI ONLINE JUDGE"
 summary_url = "https://yusukekato.jp/images/summary.jpg"
@@ -449,7 +449,7 @@ def write_index_html(lang):
   lines.append('<details>\n')
   lines.append('<summary>2024</summary>\n')
   lines.append('<ul>\n')
-  lines.append('<li>11/04: テスト追加、HTTPS更新</li>\n')
+  lines.append('<li>11/04: テスト追加、HTTPS更新、問題数表示</li>\n')
   lines.append('<li>11/02: 正誤判定の処理をサーバ側へ移動（完了）</li>\n')
   lines.append('<li>10/28: 正誤判定の処理をサーバ側へ移動</li>\n')
   lines.append('<li>10/22: 問題選択にバグがあったので修正</li>\n')
@@ -613,7 +613,7 @@ def write_index_html(lang):
   # select general problem
   if lang == "jp":
     lines.append('<h2>問題選択</h2>\n')
-    lines.append('<h3>通常問題</h3>\n')
+    lines.append('<h3 id="generalProblem">通常問題</h3>\n')
     lines.append('<div class="centerClass">\n')
     lines.append('<label class="selectbox">\n')
     lines.append('<select class="selectClass" id="selectForm1">\n')
@@ -673,7 +673,7 @@ def write_index_html(lang):
     lines.append('\n')
   if lang == "en":
     lines.append('<h2>Select Problem</h2>\n')
-    lines.append('<h3>General</h3>\n')
+    lines.append('<h3 id="generalProblem">General</h3>\n')
     lines.append('<div class="centerClass">\n')
     lines.append('<label class="selectbox">\n')
     lines.append('<select class="selectClass" id="selectForm1">\n')
@@ -734,9 +734,9 @@ def write_index_html(lang):
 
   # select exercize problem
   if lang == "jp":
-    lines.append('<h3>練習問題</h3>\n')
+    lines.append('<h3 id="exerciseProblem">練習問題</h3>\n')
   if lang == "en":
-    lines.append('<h3>Exercise</h3>\n')
+    lines.append('<h3 id="exerciseProblem">Exercise</h3>\n')
   lines.append('<div class="centerClass">\n')
   lines.append('<label class="selectbox">\n')
   lines.append('<select class="selectClass" id="selectForm2">\n')
@@ -788,9 +788,9 @@ def write_index_html(lang):
 
   # select image problem
   if lang == "jp":
-    lines.append('<h3>画像問題</h3>\n')
+    lines.append('<h3 id="imageProblem">画像問題</h3>\n')
   if lang == "en":
-    lines.append('<h3>Image</h3>\n')
+    lines.append('<h3 id="imageProblem">Image</h3>\n')
   lines.append('<div class="centerClass">\n')
   lines.append('<label class="selectbox">\n')
   lines.append('<select class="selectClass" id="selectForm3">\n')
