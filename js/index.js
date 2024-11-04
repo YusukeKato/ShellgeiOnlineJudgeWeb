@@ -74,7 +74,7 @@ function getText(objectId, fileName, addFlag, defaultString) {
                 line = line.replace(/</g, '&lt;');
                 line = line.replace(/>/g, '&gt;');
                 if (addFlag == true) {
-                    result.insertAdjacentHTML('afterbegin', line);
+                    result.insertAdjacentHTML('afterbegin', defaultString+line);
                 }
                 else if (addFlag == false) {
                     result.insertAdjacentHTML('afterbegin', line);
@@ -91,9 +91,9 @@ function getText(objectId, fileName, addFlag, defaultString) {
 }
 
 function getProblemNum() {
-    getText('generalProblem', mainUrl+'scripts/cnt_general_num.txt?version='+version, true);
-    getText('exerciseProblem', mainUrl+'scripts/cnt_execise_num.txt?version='+version, true);
-    getText('imageProblem', mainUrl+'scripts/cnt_image_num.txt?version='+version, true);
+    getText('generalProblem', mainUrl+'scripts/cnt_general_num.txt?version='+version, true, "GENERAL: ");
+    getText('exerciseProblem', mainUrl+'scripts/cnt_execise_num.txt?version='+version, true, "EXERCISE: ");
+    getText('imageProblem', mainUrl+'scripts/cnt_image_num.txt?version='+version, true, "IMAGE: ");
 }
 
 window.addEventListener("load", function() {
