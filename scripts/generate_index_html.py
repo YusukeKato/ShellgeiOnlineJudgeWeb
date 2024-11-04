@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-update_date = "2024/11/02"
-version_str = "?version=1075"
+update_date = "2024/11/04"
+version_str = "?version=1076"
 
 site_title = "シェル芸オンラインジャッジ / SHELLGEI ONLINE JUDGE"
 summary_url = "https://yusukekato.jp/images/summary.jpg"
@@ -449,6 +449,7 @@ def write_index_html(lang):
   lines.append('<details>\n')
   lines.append('<summary>2024</summary>\n')
   lines.append('<ul>\n')
+  lines.append('<li>11/04: テスト追加</li>\n')
   lines.append('<li>11/02: 正誤判定の処理をサーバ側へ移動（完了）</li>\n')
   lines.append('<li>10/28: 正誤判定の処理をサーバ側へ移動</li>\n')
   lines.append('<li>10/22: 問題選択にバグがあったので修正</li>\n')
