@@ -34,16 +34,6 @@ function timeout() {
     st.innerHTML = timeoutTxt;
 }
 
-function getProblemNum() {
-    getText('generalProblem', mainUrl+'scripts/cnt_general_num.txt?version='+version, true);
-    getText('exerciseProblem', mainUrl+'scripts/cnt_execise_num.txt?version='+version, true);
-    getText('imageProblem', mainUrl+'scripts/cnt_image_num.txt?version='+version, true);
-}
-
-window.addEventListener("load", function() {
-    getProblemNum();
-});
-
 // reference: https://kinocolog.com/javascript_first_last_slice/
 function deleteNewline(text_strings) {
     // 先頭の改行と空白を除去
@@ -68,7 +58,7 @@ function deleteNewline(text_strings) {
 
 // 問題データ取得関数
 // reference: https://munibus.hatenablog.com/entry/2022/09/30/225938
-function getText(objectId, fileName, addFlag) {
+function getText(objectId, fileName, addFlag, defaultString) {
     let result = document.getElementById(objectId);
     let xhr = new XMLHttpRequest();
     xhr.open('GET', fileName, true);
@@ -84,11 +74,12 @@ function getText(objectId, fileName, addFlag) {
                 line = line.replace(/</g, '&lt;');
                 line = line.replace(/>/g, '&gt;');
                 if (addFlag == true) {
-                   result.innerHTML = result.innerHTML+line;
+                    result.insertAdjacentHTML('afterbegin', line);
                 }
                 else if (addFlag == false) {
                     result.insertAdjacentHTML('afterbegin', line);
                 }
+                console.log(objectId+", "+fileName+": "+line);
             } else {
                 result.textContent = 'Error: Could not get problem files!!';
             }
@@ -98,6 +89,16 @@ function getText(objectId, fileName, addFlag) {
     }
     xhr.send(null);
 }
+
+function getProblemNum() {
+    getText('generalProblem', mainUrl+'scripts/cnt_general_num.txt?version='+version, true);
+    getText('exerciseProblem', mainUrl+'scripts/cnt_execise_num.txt?version='+version, true);
+    getText('imageProblem', mainUrl+'scripts/cnt_image_num.txt?version='+version, true);
+}
+
+window.addEventListener("load", function() {
+    getProblemNum();
+});
 
 // 問題選択処理用関数
 function selectClickFunc(problemNum_arg) {
