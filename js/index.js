@@ -1,5 +1,5 @@
 // パラメータ
-var version = 1060;
+var version = 1061;
 const limit_length = parseInt(1000);
 var mainUrl = 'https://shellgei-online-judge.com/';
 var is_enable_button = true;
@@ -84,7 +84,7 @@ function getText(objectId, fileName, addFlag) {
                 line = line.replace(/</g, '&lt;');
                 line = line.replace(/>/g, '&gt;');
                 if (addFlag == true) {
-                    result.insertAdjacentHTML('afterbegin', result+line);
+                   result.innerHTML = result.innerHTML+line;
                 }
                 else if (addFlag == false) {
                     result.insertAdjacentHTML('afterbegin', line);
