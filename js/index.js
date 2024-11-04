@@ -79,7 +79,7 @@ function getText(objectId, fileName, addFlag, defaultString) {
                 else if (addFlag == false) {
                     result.insertAdjacentHTML('afterbegin', line);
                 }
-                console.log(objectId+", "+fileName+": "+line);
+                // console.log(objectId+", "+fileName+": "+line);
             } else {
                 result.textContent = 'Error: Could not get problem files!!';
             }
